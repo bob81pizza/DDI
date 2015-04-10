@@ -8,6 +8,10 @@ package com.ddi;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +23,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DDIServlet extends HttpServlet {
 
+    private Connection conn;
+    private Statement st;
+    private ResultSet rs=null;
+    String s="test: ";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,6 +39,25 @@ public class DDIServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        try{
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            String connectionURL = "jdbc:mysql://192.95.16.175:3306/drugData?";
+            conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
+            st = conn.createStatement();
+            String q1 = "select * from interactions1 where interactionID = 2";
+            rs =  st.executeQuery(q1);
+            while(rs.next()){
+                s = s+rs.getString("object");
+            }
+            
+        }
+        catch(Exception e){
+            System.out.println("SQLException" + e.getMessage());
+            e.printStackTrace();
+        }
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -39,7 +67,7 @@ public class DDIServlet extends HttpServlet {
             out.println("<title>Servlet DDIServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DDIServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DDIServlet at " + s + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
