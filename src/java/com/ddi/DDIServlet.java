@@ -12,10 +12,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.jstl.sql.Result;
+import javax.servlet.jsp.jstl.sql.ResultSupport;
 
 /**
  *
@@ -46,11 +49,13 @@ public class DDIServlet extends HttpServlet {
             String connectionURL = "jdbc:mysql://192.95.16.175:3306/drugData?";
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
             st = conn.createStatement();
-            String q1 = "select * from interactions1 where interactionID = 2";
+            String q1 = "select object, precipitant, label, source from interactions1 where object = 'TRIAZOLAM'";
             rs =  st.executeQuery(q1);
-            while(rs.next()){
-                s = s+rs.getString("object");
-            }
+            
+            Result result = ResultSupport.toResult(rs);
+            request.setAttribute("result", result);
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request,response);
             
         }
         catch(Exception e){

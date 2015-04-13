@@ -16,5 +16,23 @@
     <body>
         <h1>Hello World!</h1>
         <c:out value="${'Test'}"></c:out>
+        
+        <h2>Report Results</h2>
+        <table border="1">
+            <!-- column headers -->
+            <tr>
+                <c:forEach var="columnName" items="${result.columnNames}">
+                    <th><c:out value="${columnName}"/></th>
+                </c:forEach>
+            </tr>
+            <!-- column data -->
+            <c:forEach var="row" items="${result.rowsByIndex}">
+                <tr>
+                    <c:forEach var="column" items="${row}">
+                        <td><c:out value="${column}"/></td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>
