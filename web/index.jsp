@@ -33,6 +33,8 @@
                     </c:forEach>
                 </tr>
             </c:forEach>
+                
+                <p><c:out value="${DrugBean.drugNames.get(1)}"></c:out></p>
         </table>
     </body>
 </html>

@@ -12,11 +12,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.sql.Result;
 import javax.servlet.jsp.jstl.sql.ResultSupport;
 
@@ -29,6 +31,7 @@ public class DDIServlet extends HttpServlet {
     private Connection conn;
     private Statement st;
     private ResultSet rs=null;
+    private ResultSet rs2 = null;
     String s="test: ";
     
     /**
@@ -43,19 +46,38 @@ public class DDIServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Drug drug = new Drug();
+        ArrayList<String> drugNames = new ArrayList<String>();
+        
+        
         try{
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String connectionURL = "jdbc:mysql://192.95.16.175:3306/drugData?";
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
             st = conn.createStatement();
-            String q1 = "select object, precipitant, label, source from interactions1 where object = 'TRIAZOLAM'";
-            rs =  st.executeQuery(q1);
+//            String q1 = "select object, precipitant, label, source from interactions1 where object = 'TRIAZOLAM'";
+//            rs =  st.executeQuery(q1);
             
-            Result result = ResultSupport.toResult(rs);
-            request.setAttribute("result", result);
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request,response);
+            String q2 = "select distinct(object) from interactions1";
+            rs2 = st.executeQuery(q2);
+            
+            while(rs2.next()){
+                drugNames.add(rs2.getString("object").toLowerCase());           
+            }
+            drug.setDrugNames(drugNames);
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("DrugBean", drug);
+
+        // forward the request (not redirect)
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");;
+            dispatcher.forward(request, response);
+            
+//            Result result = ResultSupport.toResult(rs);
+//            request.setAttribute("result", result);
+//            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//            rd.forward(request,response);
             
         }
         catch(Exception e){
