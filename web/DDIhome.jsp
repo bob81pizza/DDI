@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <head>
 	<title>Welcome to DDI Search</title>
@@ -49,11 +50,10 @@
                 
                 <select id="drugList" multiple>
                 <!-- Need server side code to create the actual options with a loop -->
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                
+                <c:forEach items="${DrugBean.drugNames}" var = "dn">
+                    <option>${dn}</option>
+                </c:forEach>
                 </select>
             <script>
                 $(function () {
