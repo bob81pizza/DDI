@@ -13,50 +13,21 @@ import java.util.ArrayList;
  * @author cwm24
  */
 public class Results {
-    private ArrayList<String> object;
-    private ArrayList<String> precipitant;
-    private ArrayList<String> certainty;
+    private ArrayList<ArrayList> results;
 
     /**
-     * @return the certainty
+     * @return the results
      */
-    public ArrayList<String> getCertainty() {
-        return certainty;
+    public ArrayList<ArrayList> getResults() {
+        return results;
     }
 
     /**
-     * @param certainty the certainty to set
+     * @param results the results to set
      */
-    public void setCertainty(ArrayList<String> certainty) {
-        this.certainty = certainty;
+    public void setResults(ArrayList<ArrayList> results) {
+        this.results = results;
     }
 
-    /**
-     * @return the object
-     */
-    public ArrayList<String> getObject() {
-        return object;
-    }
 
-    /**
-     * @param object the object to set
-     */
-    public void setObject(ArrayList<String> object) {
-        this.object = object;
-    }
-
-    /**
-     * @return the precipitant
-     */
-    public ArrayList<String> getPrecipitant() {
-        return precipitant;
-    }
-
-    /**
-     * @param precipitant the precipitant to set
-     */
-    public void setPrecipitant(ArrayList<String> precipitant) {
-        this.precipitant = precipitant;
-    }
-    
 }

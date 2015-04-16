@@ -20,8 +20,12 @@
                 
             <p><c:out value="Drug 2 = ${DrugBean.drugNames.get(1)}"></c:out></p>
             
-            <c:forEach items= "${ResultBean.object}" var="object">
-                <p>${object}</p>
+            <c:forEach items= "${ResultBean.results}" var="results">
+                <div class="results" style="width:100%;float:left;margin-bottom:25px;">
+                    <p>Object ${results.get(0)}</p>
+                    <p>Precipitant ${results.get(1)}</p>
+                    <p>Certainty ${results.get(2)}</p>
+                </div>
             </c:forEach>
         </table>
     </body>

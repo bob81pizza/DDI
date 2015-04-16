@@ -44,10 +44,7 @@ public class SearchServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Results results = new Results();
-        ArrayList<String> objects = new ArrayList<String>();
-        ArrayList<String> precipitants = new ArrayList<String>();
-        ArrayList<String> certainty = new ArrayList<String>();        
+        Results results = new Results();    
         
         try{
 
@@ -58,14 +55,16 @@ public class SearchServlet extends HttpServlet {
             String selectAllDrugs = "select * from interactions1 where object = 'WARFARIN' or precipitant = 'WARFARIN' order by object, precipitant";
             rs = st.executeQuery(selectAllDrugs);
             
+            ArrayList<ArrayList> totalResults = new ArrayList<ArrayList>();
+            
             while(rs.next()){
-                objects.add(rs.getString("object").toLowerCase());           
-                precipitants.add(rs.getString("precipitant"));
-                certainty.add(rs.getString("certainty"));
+                ArrayList<String> temp = new ArrayList<String>();
+                temp.add(rs.getString("object"));
+                temp.add(rs.getString("precipitant"));
+                temp.add(rs.getString("certainty"));
+                totalResults.add(temp);
             }
-            results.setObject(objects);
-            results.setPrecipitant(precipitants);
-            results.setCertainty(certainty);
+            results.setResults(totalResults);
                         
             HttpSession session = request.getSession();
             session.setAttribute("ResultBean", results);
