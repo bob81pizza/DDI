@@ -69,7 +69,7 @@ public class DDIServlet extends HttpServlet {
             session.setAttribute("DrugBean", drug);
             
         // forward the request (not redirect)
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");;
+            RequestDispatcher dispatcher = request.getRequestDispatcher("DDIhome.jsp");;
             dispatcher.forward(request, response);
                         
         }
