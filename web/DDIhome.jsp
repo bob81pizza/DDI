@@ -10,6 +10,12 @@
 	<title>Welcome to DDI Search</title>
 	<link rel="stylesheet" type="text/css" href="css/ddistyle.css" />
 	<meta charset="UTF-8">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <link href="css/listbox.css" rel="stylesheet" />
+        <script src="js/listbox.js"></script>
+
+
 </head>
 
 <body>
@@ -40,6 +46,23 @@
 	
 	<div class="drugs">			
 		<p class="stepHeader"> Step 1: Please choose 2 drugs to compare:</p>
+                
+                <select id="drugList" multiple>
+                <!-- Need server side code to create the actual options with a loop -->
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            <script>
+                $(function () {
+                    $('select[id="drugList"]').listbox({
+                        searchbar: true // enable a search bar to filter & search items
+                    });
+                });
+            </script>
+
 		
 		<input type="text" class="drugField" placeholder="Enter brand name or drug name for search"autocomplete="on"/>
 		<br>
