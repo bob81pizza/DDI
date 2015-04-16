@@ -19,6 +19,10 @@
         <h2>Report Results</h2>
                 
             <p><c:out value="Drug 2 = ${DrugBean.drugNames.get(1)}"></c:out></p>
+            
+            <c:forEach items= "${ResultBean.object}" var="object">
+                <p>${object}</p>
+            </c:forEach>
         </table>
     </body>
 </html>

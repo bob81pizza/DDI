@@ -63,10 +63,11 @@
                 });
             </script>
 
-		
-		<input type="text" class="drugField" placeholder="Enter brand name or drug name for search"autocomplete="on"/>
-		<br>
-		<input type="submit" value="Find Interactions"/>		
+		<form name="nameForm" action="SearchServlet" method="POST"">
+                    <input type="text" class="drugField" placeholder="Enter brand name or drug name for search"autocomplete="on"/>
+                    <br>
+                    <input type="submit" value="Find Interactions"/>
+                </form>
 	</div>
 
 	<div class="filters">		

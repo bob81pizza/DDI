@@ -4,9 +4,17 @@
         <servlet-name>DDIServlet</servlet-name>
         <servlet-class>com.ddi.DDIServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.ddi.SearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DDIServlet</servlet-name>
         <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
