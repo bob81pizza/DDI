@@ -10,11 +10,9 @@ background-color: #C2D1E0;
     border-width: 3px;
     border-style: solid;
     padding: 5px;
-    width: 720px;
-}
-
-div{
-    margin: 0px auto;
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .infoButton{
@@ -62,13 +60,34 @@ text-align:center;
 #drugSelection1{
     display:block;
     float:left;
+    padding: 5px;
+    margin-left: 193px;
 }
 
-#drugSelection2{
+#step2{
     display:block;
     float:left;
+    padding: 5px;
+    width:350px;
+    margin-left: 55px;
 }
 
-.filters{
+#step3{
+    width: 350px;
+    text-align: center;
+}
+
+#drugSelection2, #step3{
+    display:block;
+    float:left;
+    padding: 5px;
+}
+
+.clear{
     clear: both;
 }
+
+#submitButton{
+    text-align: center;
+}
+
