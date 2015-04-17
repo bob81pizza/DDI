@@ -69,6 +69,8 @@ public class SearchServlet extends HttpServlet {
             }
             
             results.setResults(totalResults);
+            results.setDrug1(drug1);
+            results.setDrug2(drug2);
 
                         
             HttpSession session = request.getSession();

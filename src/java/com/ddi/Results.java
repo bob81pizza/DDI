@@ -14,6 +14,8 @@ import java.util.ArrayList;
  */
 public class Results {
     private ArrayList<ArrayList> results;
+    private String drug1;
+    private String drug2;
 
     /**
      * @return the results
@@ -27,6 +29,34 @@ public class Results {
      */
     public void setResults(ArrayList<ArrayList> results) {
         this.results = results;
+    }
+
+    /**
+     * @return the drug1
+     */
+    public String getDrug1() {
+        return drug1;
+    }
+
+    /**
+     * @param drug1 the drug1 to set
+     */
+    public void setDrug1(String drug1) {
+        this.drug1 = drug1;
+    }
+
+    /**
+     * @return the drug2
+     */
+    public String getDrug2() {
+        return drug2;
+    }
+
+    /**
+     * @param drug2 the drug2 to set
+     */
+    public void setDrug2(String drug2) {
+        this.drug2 = drug2;
     }
 
 
