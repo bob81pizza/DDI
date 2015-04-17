@@ -34,21 +34,37 @@
 	</div>
 	
 	<div class="drugs">			
-		<p class="stepHeader"> Step 1: Please choose 2 drugs to compare:</p>
-                
-                <select id="drugList" multiple>
+            <p class="stepHeader"> Step 1: Please choose 2 drugs to compare:</p>
+            <div id="drugSelection1">
+            <h4 class="bold">Drug 1</h4>
+            <select id="drugList1">
                 <c:forEach items="${DrugBean.drugNames}" var = "dn">
                     <option value="${dn}">${dn}</option>
                 </c:forEach>
                 </select>
             <script>
                 $(function () {
-                    $('select[id="drugList"]').listbox({
+                    $('select[id="drugList1"]').listbox({
                         searchbar: true // enable a search bar to filter & search items
                     });
                 });
             </script>
-
+            </div>
+            <div id="drugSelection2">
+            <h4 class="bold">Drug 2</h4>
+            <select id="drugList2">
+                <c:forEach items="${DrugBean.drugNames}" var = "dn">
+                    <option value="${dn}">${dn}</option>
+                </c:forEach>
+                </select>
+            <script>
+                $(function () {
+                    $('select[id="drugList2"]').listbox({
+                        searchbar: true // enable a search bar to filter & search items
+                    });
+                });
+            </script>
+            </div>
 		<form name="nameForm" action="SearchServlet" method="POST">
                     <input type="text" class="drugField" placeholder="Enter brand name or drug name for search"autocomplete="on"/>
                     <br>

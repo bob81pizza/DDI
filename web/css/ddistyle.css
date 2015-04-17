@@ -58,3 +58,17 @@ text-align:center;
 .bold{
     font-weight: bold;
 }
+
+#drugSelection1{
+    display:block;
+    float:left;
+}
+
+#drugSelection2{
+    display:block;
+    float:left;
+}
+
+.filters{
+    clear: both;
+}
