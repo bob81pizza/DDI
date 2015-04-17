@@ -20,17 +20,18 @@
 </head>
 
 <body>
+    <div id="page">
 	<div class="headerArea"> 
 		<p class="pageTitle">DDI Search Engine</p>
 		
 		<form class="loginForm">
-			Login: <input type="text" id="login">
+                    <p class="loginP">Login: <input type="text" id="login" placeholder="Username"></p>
 			<br>
-			Password: <input type="text" id="pw">
+                    <p class="loginP">Password: <input type="password" id="pw" placeholder="Password"></p>
 			<br>
-			<input type="submit" value="Login"/>
+                        <div class="loginButton"><input type="submit" value="Login"/></div>
 			<br>
-			<p class="newAccount"><a href="">Create a new account</a></p>
+                    <p class="newAccount"><a href="">Create a new account</a></p>
 		</form>	
 	</div>		
 	
@@ -101,6 +102,6 @@
 		
 		</div>
 	</div>
-	
+    </div>
 </body>
 </html>
