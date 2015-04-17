@@ -47,12 +47,15 @@ public class SearchServlet extends HttpServlet {
         Results results = new Results();    
         
         try{
+            
+            String drug1 = request.getParameterValues("drugList1")[0];
+            String drug2 = request.getParameterValues("drugList2")[0];
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
             st = conn.createStatement();
             
-            String selectAllDrugs = "select * from interactions1 where object = 'WARFARIN' or precipitant = 'WARFARIN' order by object, precipitant";
+            String selectAllDrugs = "select * from interactions1 where object = '" + drug1 + "' and precipitant = '"+ drug2+"'" + " order by object, precipitant";
             rs = st.executeQuery(selectAllDrugs);
             
             ArrayList<ArrayList> totalResults = new ArrayList<ArrayList>();
@@ -64,7 +67,9 @@ public class SearchServlet extends HttpServlet {
                 temp.add(rs.getString("certainty"));
                 totalResults.add(temp);
             }
+            
             results.setResults(totalResults);
+
                         
             HttpSession session = request.getSession();
             session.setAttribute("ResultBean", results);
