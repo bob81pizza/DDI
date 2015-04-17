@@ -65,6 +65,8 @@ public class SearchServlet extends HttpServlet {
                 temp.add(rs.getString("object"));
                 temp.add(rs.getString("precipitant"));
                 temp.add(rs.getString("certainty"));
+                temp.add(rs.getString("label"));
+                temp.add(rs.getString("source"));
                 totalResults.add(temp);
             }
             

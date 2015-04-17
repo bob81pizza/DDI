@@ -26,6 +26,8 @@
                     <p><span class="bold">Object - </span> ${results.get(0)}</p>
                     <p><span class="bold">Precipitant - </span> ${results.get(1)}</p>
                     <p><span class="bold">Certainty - </span> ${results.get(2)}</p>
+                    <p><span class="bold">Label - </span> ${results.get(3)}</p>
+                    <p><span class="bold">Source - </span> ${results.get(4)}</p>
                 </div>
             </c:forEach>
             <p class="whiteText">Leave this here for CSS purposes</p>
