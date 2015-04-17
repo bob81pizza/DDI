@@ -14,51 +14,7 @@ background-color: #C2D1E0;
 }
 
 div{
-
-margin: 0px auto;
-
-}
-
-.headerArea{
-height: 100px;
-}
-
-.pageTitle{
-font-size: 40px;
-font-weight: bold;
-position: auto;
-float: left;
-}
-
-.loginForm{
-font-size: 12px;
-position: auto;
-float: right;
-width: 220px;
-}
-
-#login, #pw{
-    float:right;
-}
-
-.loginP{
-    margin: 1px;
-    padding: 1px;
-}
-
-.loginButton{
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-.loginForm input.text{
-width: 100%
-}
-
-.newAccount{
-    font-size:8px;
-    text-align: center;      
+    margin: 0px auto;
 }
 
 .infoButton{
@@ -87,19 +43,18 @@ text-align:center;
 }
 
 .stepHeader{
-font-size: 16px;
-font-weight: bold;
-}
-.filters{
-
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.results{
-
-
+.whiteText{
+    color: #FFFFFF;
 }
 
-.resultsField{
+.centered{
+    text-align: center;
+}
 
-
+.bold{
+    font-weight: bold;
 }

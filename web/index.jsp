@@ -11,22 +11,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/ddistyle.css" />
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Drugs!</h1>
-        
-        <h2>Report Results</h2>
-                
-            <p><c:out value="Drug 2 = ${DrugBean.drugNames.get(1)}"></c:out></p>
-            
+        <div id="page">
+        <h2 class="centered">Search Results</h2>
+            <h3 class="centered">Drugs Searched</h3>
+            <p class="centered"><c:out value="Drug 1: ${DrugBean.drugNames.get(0)}"></c:out></p>  
+            <p class="centered"><c:out value="Drug 2: ${DrugBean.drugNames.get(1)}"></c:out></p>
+            <hr>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results" style="width:100%;float:left;margin-bottom:25px;">
-                    <p>Object ${results.get(0)}</p>
-                    <p>Precipitant ${results.get(1)}</p>
-                    <p>Certainty ${results.get(2)}</p>
+                    <p><span class="bold">Object - </span> ${results.get(0)}</p>
+                    <p><span class="bold">Precipitant - </span> ${results.get(1)}</p>
+                    <p><span class="bold">Certainty - </span> ${results.get(2)}</p>
                 </div>
             </c:forEach>
-        </table>
+            <p class="whiteText">Leave this here for CSS purposes</p>
+        </div>
     </body>
 </html>

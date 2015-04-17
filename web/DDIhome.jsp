@@ -21,39 +21,24 @@
 
 <body>
     <div id="page">
-	<div class="headerArea"> 
-		<p class="pageTitle">DDI Search Engine</p>
-		
-		<form class="loginForm">
-                    <p class="loginP">Login: <input type="text" id="login" placeholder="Username"></p>
-			<br>
-                    <p class="loginP">Password: <input type="password" id="pw" placeholder="Password"></p>
-			<br>
-                        <div class="loginButton"><input type="submit" value="Login"/></div>
-			<br>
-                    <p class="newAccount"><a href="">Create a new account</a></p>
-		</form>	
-	</div>		
+        <header>
+		<h1 class="centered">DDI Search Engine</h1>
+                <img src="images/header1.jpg">
+	</header>		
 	
-	<div class="image">
-			<p> <img src="images/header.jpg" align="middle"/></p>	
-	</div>
-	
+            	
 	<div class="intro">
 	<br>
 		<p> Welcome to the DDI Search Engine. The engine will help you locate interactions between two prescription drugs. Below, enter the drugs you 
-		would like to search for, then select the type of sources and type of information you are interested in viewing. Your results will appear
-		below.</p>	
+		would like to search for, then select the type of sources and type of information you are interested in viewing.</p>	
 	</div>
 	
 	<div class="drugs">			
 		<p class="stepHeader"> Step 1: Please choose 2 drugs to compare:</p>
                 
                 <select id="drugList" multiple>
-                <!-- Need server side code to create the actual options with a loop -->
-                
                 <c:forEach items="${DrugBean.drugNames}" var = "dn">
-                    <option>${dn}</option>
+                    <option value="${dn}">${dn}</option>
                 </c:forEach>
                 </select>
             <script>
@@ -64,7 +49,7 @@
                 });
             </script>
 
-		<form name="nameForm" action="SearchServlet" method="POST"">
+		<form name="nameForm" action="SearchServlet" method="POST">
                     <input type="text" class="drugField" placeholder="Enter brand name or drug name for search"autocomplete="on"/>
                     <br>
                     <input type="submit" value="Find Interactions"/>
@@ -90,17 +75,6 @@
 		<button class="infoButton" onclick="">Evidence Statement</button>
 		<br>
 		<button class="addMore" onclick=""><img src="images/button.png"/></button>
-	</div>
-	
-	<div class="results">
-		<p> Drug 1 chosen:
-		<br>
-			Drug 2 chosen:
-		</p>
-		
-		<div class="resultsField">
-		
-		</div>
 	</div>
     </div>
 </body>
