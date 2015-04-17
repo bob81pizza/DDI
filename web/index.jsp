@@ -18,8 +18,8 @@
         <div id="page">
         <h2 class="centered">Search Results</h2>
             <h3 class="centered">Drugs Searched</h3>
-            <p class="centered"><c:out value="Drug 1: ${DrugBean.drugNames.get(0)}"></c:out></p>  
-            <p class="centered"><c:out value="Drug 2: ${DrugBean.drugNames.get(1)}"></c:out></p>
+            <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out></p>  
+            <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out></p>
             <hr>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results" style="width:100%;float:left;margin-bottom:25px;">

@@ -57,7 +57,7 @@ public class DDIServlet extends HttpServlet {
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
             st = conn.createStatement();
             
-            String selectAllDrugs = "select distinct(object) from interactions1";
+            String selectAllDrugs = "select distinct(object) from interactions1 where object not like '%4-%' order by object";
             rs2 = st.executeQuery(selectAllDrugs);
             
             while(rs2.next()){
