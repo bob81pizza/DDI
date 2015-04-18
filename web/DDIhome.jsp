@@ -20,11 +20,12 @@
                 <p> Welcome to the DDI Search Engine. The engine will help you locate interactions between two prescription drugs. Below, enter the drugs you 
                     would like to search for, then select the type of sources and type of information you are interested in viewing.</p>	
             </div>
+            <form name="drugForm" action="SearchServlet" method="POST">
             <div class="drugs centered">			
                 <p class="stepHeader">Step 1: Please choose 2 drugs to compare</p>
                 <div id="drugSelection1">
                     <h4 class="bold centered">Drug 1</h4>
-                    <select id="drugList1">
+                    <select name="drugList1" id="drugList1">
                         <c:forEach items="${DrugBean.drugNames}" var = "dn">
                             <option value="${dn}">${dn}</option>
                         </c:forEach>
@@ -39,7 +40,7 @@
                 </div>
                 <div id="drugSelection2">
                     <h4 class="bold centered">Drug 2</h4>
-                    <select id="drugList2">
+                    <select name="drugList2" id="drugList2">
                         <c:forEach items="${DrugBean.drugNames}" var = "dn">
                             <option value="${dn}">${dn}</option>
                         </c:forEach>
@@ -83,6 +84,7 @@
                 </div>
             </div>
             <div id="submitButton"><input class="clear" type="submit" value="Find Interactions"/></div>
+            </form>
         </div>
     </body>
 </html>
