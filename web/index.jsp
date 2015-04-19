@@ -76,6 +76,7 @@
                 <button class="infoButton" onclick="toggleVisible('researchStatement')">Research Statement</button>
             </header>
             <hr>
+            <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="DDIhome.jsp">here</a> to search again.</span></c:if>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
                     <p class="object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(0)}</a></p>
