@@ -44,9 +44,9 @@
                 <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <!-- Get the drug ID as well and put here --></p>  
                 <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <!-- Get the drug ID as well and put here --></p>
                 <!-- Allow the user to click the button below to switch the object/precipitant -->
-                <form name="drugForm" action="SearchServlet" method="POST">
-                    <input type="hidden" value="">
-                    <input type="hidden" value="">
+                <form name="drugForm" action="ReverseServlet" method="POST">
+                    <input name="drug1" type="hidden" value="${ResultBean.drug1}">
+                    <input name="drug2" type="hidden" value="${ResultBean.drug2}">
                     <div id="submitButton"><input class="clear" type="submit" value="Reverse Object/Precipitant"/></div>
                 </form>
                 <hr>
