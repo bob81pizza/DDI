@@ -55,34 +55,21 @@
                 </div>
             </div>
 
-            <div class="filters centered clear">
-                <p class="stepHeader">Step 2: Please choose the sources for the data</p>
-                <div id="step2">
-                    <select id="categorySelect" multiple>
-                        <option value="Clinically Oriented">Clinically Oriented</option>
-                        <option value="NLP Corpora">NLP Corpora</option>
-                        <option value="Bioinformatics-Pharmacovigilance">Bioinformatics-Pharmacovigilance</option>
-                    </select>
-                    <script>
-                        $(function () {
-                            $('select[id="categorySelect"]').listbox({});
-                        });
-                    </script>
-                </div>
-                <div id="step3">
-                    <select id="sourceSelect" multiple>
-                        <optgroup label="Clinically Oriented">
-                            <option value="CredibleMeds">CredibleMeds</option>
-                            <option value="NDF-RT">NDF-RT</option>
-                            <option value="ONC-HighPriority">ONC-HighPriority</option>
-                            <option value="ONC-NonInteruptive">ONC-NonInteruptive</option>
-                        </optgroup>
-                        <optgroup label="Bioinformatics-Pharmacovigilance">
-                            <option value="Drugbank">Drugbank</option>
-                            <option value="DIKB">DIKB</option>
-                        </optgroup>
-                    </select>
-                    
+            <div class="filters clear">
+                <p class="centered stepHeader">Step 2: Please choose the sources for the data</p>
+                <div class="centerDiv">
+                    <input type="checkbox" name="source" value="Clinically Oriented"><span class="bold">Clinically Oriented</span><br>
+                    <div class="indent">
+                        <input type="checkbox" name="source" value="CredibleMeds">CredibleMeds<br>
+                        <input type="checkbox" name="source" value="NDF-RT">NDF-RT<br>
+                        <input type="checkbox" name="source" value="ONC-HighPriority">ONC-HighPriority<br>
+                        <input type="checkbox" name="source" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
+                    </div>
+                    <input type="checkbox" name="source" value="Bioinformatics-Pharmacovigilance"><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
+                    <div class="indent">
+                        <input type="checkbox" name="source" value="DIKB">DIKB<br>
+                        <input type="checkbox" name="source" value="Drugbank">Drugbank<br>
+                    </div>
                 </div>
             </div>
             <div id="submitButton"><input class="clear" type="submit" value="Find Interactions"/></div>
