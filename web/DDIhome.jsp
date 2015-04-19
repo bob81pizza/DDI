@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <link href="css/listbox.css" rel="stylesheet" />
-         <script src="js/listbox.js"></script>
+        <script src="js/listbox.js"></script>
     </head>
     <body>
         <div id="page">
@@ -58,18 +58,48 @@
             <div class="filters clear">
                 <p class="centered stepHeader">Step 2: Please choose the sources for the data</p>
                 <div class="centerDiv">
-                    <input type="checkbox" name="source" value="Clinically Oriented"><span class="bold">Clinically Oriented</span><br>
+                    <input type="checkbox" id="CO-cat" value="Clinically Oriented" onchange="checkSources('CO-cat');"><span class="bold">Clinically Oriented</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="source" value="CredibleMeds">CredibleMeds<br>
-                        <input type="checkbox" name="source" value="NDF-RT">NDF-RT<br>
-                        <input type="checkbox" name="source" value="ONC-HighPriority">ONC-HighPriority<br>
-                        <input type="checkbox" name="source" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
+                        <input type="checkbox" id="COsource1" value="CredibleMeds">CredibleMeds<br>
+                        <input type="checkbox" id="COsource2" value="NDF-RT">NDF-RT<br>
+                        <input type="checkbox" id="COsource3" value="ONC-HighPriority">ONC-HighPriority<br>
+                        <input type="checkbox" id="COsource4" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
                     </div>
-                    <input type="checkbox" name="source" value="Bioinformatics-Pharmacovigilance"><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
+                    <input type="checkbox" id="BioPharm-cat" value="Bioinformatics-Pharmacovigilance" onchange="checkSources('BioPharm-cat');"><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="source" value="DIKB">DIKB<br>
-                        <input type="checkbox" name="source" value="Drugbank">Drugbank<br>
+                        <input type="checkbox" id="BPsource1" value="DIKB">DIKB<br>
+                        <input type="checkbox" id="BPsource2" value="Drugbank">Drugbank<br>
                     </div>
+                    <script>
+                        function checkSources(category){
+                            var catCheckStatus = document.getElementById(category).checked;
+                            if(category == "CO-cat"){
+                                if(catCheckStatus == true){
+                                    document.getElementById('COsource1').checked = true;
+                                    document.getElementById('COsource2').checked = true;
+                                    document.getElementById('COsource3').checked = true;
+                                    document.getElementById('COsource4').checked = true;
+                                }
+                                if(catCheckStatus == false){
+                                    document.getElementById('COsource1').checked = false;
+                                    document.getElementById('COsource2').checked = false;
+                                    document.getElementById('COsource3').checked = false;
+                                    document.getElementById('COsource4').checked = false;
+                                }
+                            }
+                            if(category == "BioPharm-cat"){
+                                if(catCheckStatus == true){
+                                    document.getElementById('BPsource1').checked = true;
+                                    document.getElementById('BPsource2').checked = true;
+                                }
+                                if(catCheckStatus == false){
+                                    document.getElementById('BPsource1').checked = false;
+                                    document.getElementById('BPsource2').checked = false;
+
+                                }
+                            }
+                        }
+                    </script>
                 </div>
             </div>
             <div id="submitButton"><input class="clear" type="submit" value="Find Interactions"/></div>
