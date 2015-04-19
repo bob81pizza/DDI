@@ -56,8 +56,8 @@
             </div>
 
             <div class="filters centered clear">
+                <p class="stepHeader">Step 2: Please choose the sources for the data</p>
                 <div id="step2">
-                <p class="stepHeader">Step 2: Please choose source types</p>
                     <select id="categorySelect" multiple>
                         <option value="Clinically Oriented">Clinically Oriented</option>
                         <option value="NLP Corpora">NLP Corpora</option>
@@ -70,17 +70,19 @@
                     </script>
                 </div>
                 <div id="step3">
-                    <p class="stepHeader">Step 3: Please choose what data to display</p>
                     <select id="sourceSelect" multiple>
-                        <option value="1">source 1</option>
-                        <option value="2">source 2</option>
-                        <option value="3">source 3</option>
+                        <optgroup label="Clinically Oriented">
+                            <option value="CredibleMeds">CredibleMeds</option>
+                            <option value="NDF-RT">NDF-RT</option>
+                            <option value="ONC-HighPriority">ONC-HighPriority</option>
+                            <option value="ONC-NonInteruptive">ONC-NonInteruptive</option>
+                        </optgroup>
+                        <optgroup label="Bioinformatics-Pharmacovigilance">
+                            <option value="Drugbank">Drugbank</option>
+                            <option value="DIKB">DIKB</option>
+                        </optgroup>
                     </select>
-                    <script>
-                        $(function () {
-                            $('select[id="sourceSelect"]').listbox({});
-                        });
-                    </script>
+                    
                 </div>
             </div>
             <div id="submitButton"><input class="clear" type="submit" value="Find Interactions"/></div>
