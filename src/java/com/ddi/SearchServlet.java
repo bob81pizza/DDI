@@ -48,9 +48,17 @@ public class SearchServlet extends HttpServlet {
         Results results = new Results();    
         
         try{
+
             
-            String drug1 = request.getParameterValues("drugList1")[0];
-            String drug2 = request.getParameterValues("drugList2")[0];
+            String drug1 = request.getParameter("drug2");
+            String drug2 = request.getParameter("drug1");
+            
+            if(drug1==null && drug2==null){
+                drug1 = request.getParameterValues("drugList1")[0];
+                drug2 = request.getParameterValues("drugList2")[0];
+            }
+            
+
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
