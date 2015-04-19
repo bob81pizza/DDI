@@ -77,17 +77,11 @@
             </header>
             <hr>
             <c:forEach items= "${ResultBean.results}" var="results">
-<<<<<<< HEAD
                 <div class="results">
-                    <p class="object"><span class="bold">Object - </span> ${results.get(0)}</p>
-                    <p class="precipitant"><span class="bold">Precipitant - </span> ${results.get(1)}</p>
-=======
-                <div class="results" style="width:100%;float:left;margin-bottom:25px;">
                     <p class="object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(0)}</a></p>
                     <p class="DrugClass1"><span class="bold">Object Drug Class - </span> </p>
                     <p class="precipitant"><span class="bold">Precipitant - </span> <!-- Put the drug2 data in the href --> <a href="" target="_blank"> ${results.get(1)}</a></p>
                     <p class="DrugClass2"><span class="bold">Precipitant Drug Class - </span> </p>
->>>>>>> origin/Jacky's-Branch
                     <p class="certainty"><span class="bold">Certainty - </span> ${results.get(2)}</p>
                     <p class="label"><span class="bold">Label - </span> ${results.get(3)}</p>
                     <p class="source"><span class="bold">Source - </span> ${results.get(4)}</p>
@@ -112,6 +106,7 @@
                     <p class="hide evidence"><span class="bold">Evidence - </span> </p>
                     <p class="hide evidenceSource"><span class="bold">Evidence Source- </span> </p>
                     <p class="hide researchStatement"><span class="bold">Research Statement  - </span> </p>
+                    <hr>
                 </div>
             </c:forEach>
             <p class="whiteText">Leave this here for CSS purposes</p>
