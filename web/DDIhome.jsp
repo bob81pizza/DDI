@@ -24,7 +24,7 @@
             <div class="drugs centered">			
                 <p class="stepHeader">Step 1: Please choose 2 drugs to compare</p>
                 <div id="drugSelection1">
-                    <h4 class="bold centered">Drug 1</h4>
+                    <h4 class="bold centered">Drug 1 - Object</h4>
                     <select name="drugList1" id="drugList1">
                         <c:forEach items="${DrugBean.drugNames}" var = "dn">
                             <option value="${dn}">${dn}</option>
@@ -39,7 +39,7 @@
                     </script>
                 </div>
                 <div id="drugSelection2">
-                    <h4 class="bold centered">Drug 2</h4>
+                    <h4 class="bold centered">Drug 2 - Precipitant</h4>
                     <select name="drugList2" id="drugList2">
                         <c:forEach items="${DrugBean.drugNames}" var = "dn">
                             <option value="${dn}">${dn}</option>
