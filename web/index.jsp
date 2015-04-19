@@ -86,7 +86,7 @@
                     <p class="label"><span class="bold">Label - </span> ${results.get(3)}</p>
                     <p class="source"><span class="bold">Source - </span> ${results.get(4)}</p>
                     
-                    <p class="hide contrindication"><span class="bold">Contrindication - </span> </p>
+                    <p class="hide contraindication"><span class="bold">Contrindication - </span> </p>
                     <p class="hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> </p>
                     <p class="hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> </p>
                     <p class="hide Homepage"><span class="bold">Homepage - </span> </p>
