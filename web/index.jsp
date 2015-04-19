@@ -50,7 +50,7 @@
             </header>
             <hr>
             <c:forEach items= "${ResultBean.results}" var="results">
-                <div class="results" style="width:100%;float:left;margin-bottom:25px;">
+                <div class="results">
                     <p class="object"><span class="bold">Object - </span> ${results.get(0)}</p>
                     <p class="precipitant"><span class="bold">Precipitant - </span> ${results.get(1)}</p>
                     <p class="certainty"><span class="bold">Certainty - </span> ${results.get(2)}</p>
