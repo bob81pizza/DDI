@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/ddistyle.css" />
-        <title>JSP Page</title>
+        <title>Drug Interaction Search Results</title>
         <script>
             function toggleVisible(toggleClass){
                 var elements = document.getElementsByClassName(toggleClass);
@@ -33,10 +33,16 @@
                 }
             }
             
-            window.onload(hideStuff());
+            function showAllData(){
+                var stuffToShow = document.getElementsByClassName('showAll');
+                for(var i=0; i < stuffToShow.length; i++){
+                    stuffToShow[i].style.display = "block";
+                }
+            }
+
         </script>
     </head>
-    <body>
+    <body onload="hideStuff();">
         <div id="page">
             <header>
                 <h2 class="centered">Search Results</h2>
@@ -74,39 +80,41 @@
 		<button class="infoButton" onclick="toggleVisible('evidence')">Evidence</button>
 		<button class="infoButton" onclick="toggleVisible('evidenceSource')">Evidence Source</button>
                 <button class="infoButton" onclick="toggleVisible('researchStatement')">Research Statement</button>
+                <br>
+                <button class="infoButton" onclick="showAllData();">Show all Data</button>
             </header>
             <hr>
             <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="DDIhome.jsp">here</a> to search again.</span></c:if>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
-                    <p class="object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(0)}</a></p>
-                    <p class="DrugClass1"><span class="bold">Object Drug Class - </span> </p>
-                    <p class="precipitant"><span class="bold">Precipitant - </span> <!-- Put the drug2 data in the href --> <a href="" target="_blank"> ${results.get(1)}</a></p>
-                    <p class="DrugClass2"><span class="bold">Precipitant Drug Class - </span> </p>
-                    <p class="certainty"><span class="bold">Certainty - </span> ${results.get(2)}</p>
-                    <p class="label"><span class="bold">Label - </span> ${results.get(3)}</p>
-                    <p class="source"><span class="bold">Source - </span> ${results.get(4)}</p>
+                    <p class="showAll object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(0)}</a></p>
+                    <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> </p>
+                    <p class="showAll precipitant"><span class="bold">Precipitant - </span> <!-- Put the drug2 data in the href --> <a href="" target="_blank"> ${results.get(1)}</a></p>
+                    <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> </p>
+                    <p class="showAll certainty"><span class="bold">Certainty - </span> ${results.get(2)}</p>
+                    <p class="showAll label"><span class="bold">Label - </span> ${results.get(3)}</p>
+                    <p class="showAll source"><span class="bold">Source - </span> ${results.get(4)}</p>
                     
-                    <p class="hide contraindication"><span class="bold">Contrindication - </span> </p>
-                    <p class="hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> </p>
-                    <p class="hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> </p>
-                    <p class="hide Homepage"><span class="bold">Homepage - </span> </p>
-                    <p class="hide researchStatementLabel"><span class="bold">Research Statement Label - </span> </p>
-                    <p class="hide managementOptions"><span class="bold">Management Options - </span> </p>
-                    <p class="hide evidenceStatement"><span class="bold">Evidence Statement - </span> </p>
+                    <p class="showAll hide contraindication"><span class="bold">Contrindication - </span> </p>
+                    <p class="showAll hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> </p>
+                    <p class="showAll hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> </p>
+                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span> </p>
+                    <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> </p>
+                    <p class="showAll hide managementOptions"><span class="bold">Management Options - </span> </p>
+                    <p class="showAll hide evidenceStatement"><span class="bold">Evidence Statement - </span> </p>
                     
-                    <p class="hide dateAnnotated"><span class="bold">Date Annotated - </span> </p>
-                    <p class="hide effectConcept"><span class="bold">Effect Concept - </span> </p>
-                    <p class="hide numericVal"><span class="bold">Numeric Value  - </span> </p>
-                    <p class="hide pathway"><span class="bold">Pathway - </span> </p>
-                    <p class="hide precaution"><span class="bold">Precaution - </span> </p>
-                    <p class="hide severity"><span class="bold">Severity - </span> </p>
-                    <p class="hide uri"><span class="bold">URI- </span> </p>
-                    <p class="hide whoAnnotated"><span class="bold">Who Annotated  - </span> </p>
-                    <p class="hide ddiType"><span class="bold">ddiType - </span> </p>
-                    <p class="hide evidence"><span class="bold">Evidence - </span> </p>
-                    <p class="hide evidenceSource"><span class="bold">Evidence Source- </span> </p>
-                    <p class="hide researchStatement"><span class="bold">Research Statement  - </span> </p>
+                    <p class="showAll hide dateAnnotated"><span class="bold">Date Annotated - </span> </p>
+                    <p class="showAll hide effectConcept"><span class="bold">Effect Concept - </span> </p>
+                    <p class="showAll hide numericVal"><span class="bold">Numeric Value  - </span> </p>
+                    <p class="showAll hide pathway"><span class="bold">Pathway - </span> </p>
+                    <p class="showAll hide precaution"><span class="bold">Precaution - </span> </p>
+                    <p class="showAll hide severity"><span class="bold">Severity - </span> </p>
+                    <p class="showAll hide uri"><span class="bold">URI- </span> </p>
+                    <p class="showAll hide whoAnnotated"><span class="bold">Who Annotated  - </span> </p>
+                    <p class="showAll hide ddiType"><span class="bold">ddiType - </span> </p>
+                    <p class="showAll hide evidence"><span class="bold">Evidence - </span> </p>
+                    <p class="showAll hide evidenceSource"><span class="bold">Evidence Source- </span> </p>
+                    <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> </p>
                     <hr>
                 </div>
             </c:forEach>
