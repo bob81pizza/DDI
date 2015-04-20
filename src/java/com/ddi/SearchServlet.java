@@ -65,7 +65,8 @@ public class SearchServlet extends HttpServlet {
             String selectAllDrugs = "select * from interactions1 where object = '" + drug1 + "' and precipitant = '"+ drug2+"'" + " order by object, precipitant";
             rs = st.executeQuery(selectAllDrugs);
             
-            ArrayList<ArrayList> totalResults = new ArrayList<ArrayList>();
+            ArrayList<ArrayList> totalResults = new ArrayList<>();
+            ArrayList<String> sourceCSS = new ArrayList<>();
             
             String drug1ID = null;
             String drug2ID = null;
@@ -106,11 +107,24 @@ public class SearchServlet extends HttpServlet {
                 totalResults.add(temp);
             }
             
+//            sourceCSS=null;
+            
+            for(int i=0; i<totalResults.get(0).size(); i++){
+                Boolean noSources=false;
+                for(int j=0; j<totalResults.size(); j++){
+                    if(totalResults.get(j).get(i).equals("None")) noSources=true;
+                }
+                if(noSources==false) sourceCSS.add("goodSource");
+                else sourceCSS.add("noSource");
+            }
+
+            
             results.setResults(totalResults);
             results.setDrug1(drug1);
             results.setDrug2(drug2);
             results.setDrug1ID(drug1ID);
             results.setDrug2ID(drug2ID);
+            results.setSourceCSS(sourceCSS);
                         
             HttpSession session = request.getSession();
             session.setAttribute("ResultBean", results);

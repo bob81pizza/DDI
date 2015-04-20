@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class Results {
     private ArrayList<ArrayList> results;
+    private ArrayList<String> sourceCSS;
     private String drug1;
     private String drug2;
     private String drug1ID;
@@ -87,6 +88,20 @@ public class Results {
      */
     public void setDrug2ID(String drug2ID) {
         this.drug2ID = drug2ID;
+    }
+
+    /**
+     * @return the sourceCSS
+     */
+    public ArrayList<String> getSourceCSS() {
+        return sourceCSS;
+    }
+
+    /**
+     * @param sourceCSS the sourceCSS to set
+     */
+    public void setSourceCSS(ArrayList<String> sourceCSS) {
+        this.sourceCSS = sourceCSS;
     }
 
 

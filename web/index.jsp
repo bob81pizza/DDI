@@ -57,14 +57,14 @@
                 </form>
                     <p class="centered">Click <a href="/DDI">here</a> to search for 2 new drugs</p>
                 <hr>
-                <button class="infoButton" onclick="toggleVisible('certainty')">Certainty</button>
+                <button class="${ResultBean.sourceCSS.get(6)}" onclick="toggleVisible('certainty')">Certainty</button>
 		<button class="infoButton" onclick="toggleVisible('contraindication')">Contraindication</button>
 		<button class="infoButton" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
 		<button class="infoButton" onclick="toggleVisible('ddiPkMechanism')">ddiPkMechanism</button>
 		<button class="infoButton" onclick="toggleVisible('Homepage')">Homepage</button>
 		<br>
-                <button class="infoButton" onclick="toggleVisible('label')">Label</button>
-		<button class="infoButton" onclick="toggleVisible('source')">Source</button>
+                <button class="${ResultBean.sourceCSS.get(13)}" onclick="toggleVisible('label')">Label</button>
+		<button class="${ResultBean.sourceCSS.get(20)}" onclick="toggleVisible('source')">Source</button>
 		<button class="infoButton" onclick="toggleVisible('researchStatementLabel')">Research Statement Label</button>
 		<button class="infoButton" onclick="toggleVisible('managementOptions')">Management Options</button>
 		<button class="infoButton" onclick="toggleVisible('evidenceStatement')">Evidence Statement</button>
