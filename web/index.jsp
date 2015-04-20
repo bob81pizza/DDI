@@ -87,15 +87,15 @@
             <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="DDIhome.jsp">here</a> to search again.</span></c:if>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
-                    <p class="showAll object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(0)}</a></p>
+                    <p class="showAll object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(1)}</a></p>
                     <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> </p>
-                    <p class="showAll precipitant"><span class="bold">Precipitant - </span> <!-- Put the drug2 data in the href --> <a href="" target="_blank"> ${results.get(1)}</a></p>
+                    <p class="showAll precipitant"><span class="bold">Precipitant - </span> <!-- Put the drug2 data in the href --> <a href="" target="_blank"> ${results.get(4)}</a></p>
                     <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> </p>
-                    <p class="showAll certainty"><span class="bold">Certainty - </span> ${results.get(2)}</p>
-                    <p class="showAll label"><span class="bold">Label - </span> ${results.get(3)}</p>
-                    <p class="showAll source"><span class="bold">Source - </span> ${results.get(4)}</p>
+                    <p class="showAll certainty"><span class="bold">Certainty - </span> ${results.get(6)}</p>
+                    <p class="showAll label"><span class="bold">Label - </span> ${results.get(13)}</p>
+                    <p class="showAll source"><span class="bold">Source - </span> ${results.get(20)}</p>
                     
-                    <p class="showAll hide contraindication"><span class="bold">Contrindication - </span> </p>
+                    <p class="showAll hide contraindication"><span class="bold">Contraindication - </span> </p>
                     <p class="showAll hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> </p>
                     <p class="showAll hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> </p>
                     <p class="showAll hide Homepage"><span class="bold">Homepage - </span> </p>

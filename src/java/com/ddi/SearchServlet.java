@@ -69,11 +69,34 @@ public class SearchServlet extends HttpServlet {
             
             while(rs.next()){
                 ArrayList<String> temp = new ArrayList<String>();
+                temp.add(rs.getString("drug1"));
                 temp.add(rs.getString("object"));
+                temp.add(rs.getString("drug1ID"));
+                temp.add(rs.getString("drug2"));
                 temp.add(rs.getString("precipitant"));
+                temp.add(rs.getString("drug2ID"));
                 temp.add(rs.getString("certainty"));
+                temp.add(rs.getString("contrindication"));
+                temp.add(rs.getString("dateAnnotated"));
+                temp.add(rs.getString("ddiPkEffect"));
+                temp.add(rs.getString("ddiPkMechanism"));
+                temp.add(rs.getString("effectConcept"));
+                temp.add(rs.getString("homepage"));
                 temp.add(rs.getString("label"));
+                temp.add(rs.getString("numericVal"));
+                temp.add(rs.getString("pathway"));
+                temp.add(rs.getString("severity"));
+                temp.add(rs.getString("uri"));
+                temp.add(rs.getString("whoAnnotated"));
                 temp.add(rs.getString("source"));
+                temp.add(rs.getString("ddiType"));
+                temp.add(rs.getString("evidence"));
+                temp.add(rs.getString("evidenceSource"));
+                temp.add(rs.getString("evidenceStatement"));
+                temp.add(rs.getString("researchStatementLabel"));
+                temp.add(rs.getString("researchStatement"));
+                temp.add(rs.getString("DrugClass1"));
+                temp.add(rs.getString("DrugClass2"));
                 totalResults.add(temp);
             }
             
