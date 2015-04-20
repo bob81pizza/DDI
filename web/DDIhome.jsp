@@ -95,7 +95,6 @@
                                 if(catCheckStatus == false){
                                     document.getElementById('BPsource1').checked = false;
                                     document.getElementById('BPsource2').checked = false;
-
                                 }
                             }
                         }
