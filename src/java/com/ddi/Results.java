@@ -16,6 +16,8 @@ public class Results {
     private ArrayList<ArrayList> results;
     private String drug1;
     private String drug2;
+    private String drug1ID;
+    private String drug2ID;
 
     /**
      * @return the results
@@ -57,6 +59,34 @@ public class Results {
      */
     public void setDrug2(String drug2) {
         this.drug2 = drug2;
+    }
+
+    /**
+     * @return the drug1ID
+     */
+    public String getDrug1ID() {
+        return drug1ID;
+    }
+
+    /**
+     * @param drug1ID the drug1ID to set
+     */
+    public void setDrug1ID(String drug1ID) {
+        this.drug1ID = drug1ID;
+    }
+
+    /**
+     * @return the drug2ID
+     */
+    public String getDrug2ID() {
+        return drug2ID;
+    }
+
+    /**
+     * @param drug2ID the drug2ID to set
+     */
+    public void setDrug2ID(String drug2ID) {
+        this.drug2ID = drug2ID;
     }
 
 

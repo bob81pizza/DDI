@@ -47,14 +47,15 @@
             <header>
                 <h2 class="centered">Search Results</h2>
                 <h3 class="centered">Drugs Searched</h3>
-                <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <!-- Get the drug ID as well and put here --></p>  
-                <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <!-- Get the drug ID as well and put here --></p>
+                <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <c:out value="${ResultBean.drug1ID}"></c:out><!-- Get the drug ID as well and put here --></p>  
+                <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <c:out value="${ResultBean.drug2ID}"></c:out><!-- Get the drug ID as well and put here --></p>
                 <!-- Allow the user to click the button below to switch the object/precipitant -->
                 <form name="drugForm" action="SearchServlet" method="POST">
                     <input name="drug1" type="hidden" value="${ResultBean.drug1}">
                     <input name="drug2" type="hidden" value="${ResultBean.drug2}">
                     <div id="submitButton"><input class="clear" type="submit" value="Reverse Object/Precipitant"/></div>
                 </form>
+                    <p class="centered">Click <a href="/DDI">here</a> to search for 2 new drugs</p>
                 <hr>
                 <button class="infoButton" onclick="toggleVisible('certainty')">Certainty</button>
 		<button class="infoButton" onclick="toggleVisible('contraindication')">Contraindication</button>
@@ -84,7 +85,7 @@
                 <button class="infoButton" onclick="showAllData();">Show all Data</button>
             </header>
             <hr>
-            <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="DDIhome.jsp">here</a> to search again.</span></c:if>
+            <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="/DDI">here</a> to search again.</span></c:if>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
                     <p class="showAll object"><span class="bold">Object - </span> <!-- Put the drug1 data in the href -->  <a href="" target="_blank"> ${results.get(1)}</a></p>
@@ -95,26 +96,26 @@
                     <p class="showAll label"><span class="bold">Label - </span> ${results.get(13)}</p>
                     <p class="showAll source"><span class="bold">Source - </span> ${results.get(20)}</p>
                     
-                    <p class="showAll hide contraindication"><span class="bold">Contraindication - </span> </p>
-                    <p class="showAll hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> </p>
-                    <p class="showAll hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> </p>
-                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span> </p>
-                    <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> </p>
-                    <p class="showAll hide managementOptions"><span class="bold">Management Options - </span> </p>
-                    <p class="showAll hide evidenceStatement"><span class="bold">Evidence Statement - </span> </p>
+                    <p class="showAll hide contraindication"><span class="bold">Contraindication - </span> ${results.get(7)}</p>
+                    <p class="showAll hide ddiPkEffect"><span class="bold">ddiPkEffect - </span> ${results.get(9)}</p>
+                    <p class="showAll hide ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> ${results.get(10)}</p>
+                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span> ${results.get(12)}</p>
+                    <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> ${results.get(25)}</p>
+                    <p class="showAll hide managementOptions"><span class="bold">Management Options - </span> ${results.get(27)}</p>
+                    <p class="showAll hide evidenceStatement"><span class="bold">Evidence Statement - </span> ${results.get(24)}</p>
                     
-                    <p class="showAll hide dateAnnotated"><span class="bold">Date Annotated - </span> </p>
-                    <p class="showAll hide effectConcept"><span class="bold">Effect Concept - </span> </p>
-                    <p class="showAll hide numericVal"><span class="bold">Numeric Value  - </span> </p>
-                    <p class="showAll hide pathway"><span class="bold">Pathway - </span> </p>
-                    <p class="showAll hide precaution"><span class="bold">Precaution - </span> </p>
-                    <p class="showAll hide severity"><span class="bold">Severity - </span> </p>
-                    <p class="showAll hide uri"><span class="bold">URI- </span> </p>
-                    <p class="showAll hide whoAnnotated"><span class="bold">Who Annotated  - </span> </p>
-                    <p class="showAll hide ddiType"><span class="bold">ddiType - </span> </p>
-                    <p class="showAll hide evidence"><span class="bold">Evidence - </span> </p>
-                    <p class="showAll hide evidenceSource"><span class="bold">Evidence Source- </span> </p>
-                    <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> </p>
+                    <p class="showAll hide dateAnnotated"><span class="bold">Date Annotated - </span> ${results.get(8)}</p>
+                    <p class="showAll hide effectConcept"><span class="bold">Effect Concept - </span> ${results.get(11)}</p>
+                    <p class="showAll hide numericVal"><span class="bold">Numeric Value  - </span> ${results.get(14)}</p>
+                    <p class="showAll hide pathway"><span class="bold">Pathway - </span> ${results.get(15)}</p>
+                    <p class="showAll hide precaution"><span class="bold">Precaution - </span> ${results.get(16)}</p>
+                    <p class="showAll hide severity"><span class="bold">Severity - </span> ${results.get(17)}</p>
+                    <p class="showAll hide uri"><span class="bold">URI- </span> ${results.get(18)}</p>
+                    <p class="showAll hide whoAnnotated"><span class="bold">Who Annotated  - </span> ${results.get(19)}</p>
+                    <p class="showAll hide ddiType"><span class="bold">ddiType - </span> ${results.get(21)}</p>
+                    <p class="showAll hide evidence"><span class="bold">Evidence - </span> ${results.get(22)}</p>
+                    <p class="showAll hide evidenceSource"><span class="bold">Evidence Source- </span> ${results.get(23)}</p>
+                    <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> ${results.get(26)}</p>
                     <hr>
                 </div>
             </c:forEach>

@@ -67,7 +67,12 @@ public class SearchServlet extends HttpServlet {
             
             ArrayList<ArrayList> totalResults = new ArrayList<ArrayList>();
             
+            String drug1ID = null;
+            String drug2ID = null;
+            
             while(rs.next()){
+                if(drug1ID==null) drug1ID = rs.getString("drug1ID");
+                if(drug2ID==null) drug2ID = rs.getString("drug2ID");
                 ArrayList<String> temp = new ArrayList<String>();
                 temp.add(rs.getString("drug1"));
                 temp.add(rs.getString("object"));
@@ -85,6 +90,7 @@ public class SearchServlet extends HttpServlet {
                 temp.add(rs.getString("label"));
                 temp.add(rs.getString("numericVal"));
                 temp.add(rs.getString("pathway"));
+                temp.add(rs.getString("precaution"));
                 temp.add(rs.getString("severity"));
                 temp.add(rs.getString("uri"));
                 temp.add(rs.getString("whoAnnotated"));
@@ -103,7 +109,8 @@ public class SearchServlet extends HttpServlet {
             results.setResults(totalResults);
             results.setDrug1(drug1);
             results.setDrug2(drug2);
-
+            results.setDrug1ID(drug1ID);
+            results.setDrug2ID(drug2ID);
                         
             HttpSession session = request.getSession();
             session.setAttribute("ResultBean", results);
