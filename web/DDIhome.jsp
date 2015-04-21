@@ -25,7 +25,7 @@
                 <p class="stepHeader">Step 1: Please choose 2 drugs to compare</p>
                 <div id="drugSelection1">
                     <h4 class="bold centered">Drug 1 - Object</h4>
-                    <select name="drugList1" id="drugList1">
+                    <select name="drugList1" id="drugList1" onchange="getAvailablePrecipitants();">
                         <c:forEach items="${DrugBean.drugNames}" var = "dn">
                             <option value="${dn}">${dn}</option>
                         </c:forEach>
@@ -36,6 +36,14 @@
                                 searchbar: true // enable a search bar to filter & search items
                             });
                         });
+                        
+                        function getAvailablePrecipitants(){
+                            var currentSelectedDrug = $('select[id="drugList1"]').val();
+                            $.get( "drug_ajax", {drug: currentSelectedDrug} )
+                                .done(function( data ) {
+                                alert( "Data Loaded: " + data );
+                            });
+                        }
                     </script>
                 </div>
                 <div id="drugSelection2">

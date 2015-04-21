@@ -16,7 +16,7 @@ background-color: #C2D1E0;
 }
 
 .infoButton{
-background-color: #CCFFCC;
+//background-color: #CCFFCC;
 height: 30px;
 }
 
@@ -103,4 +103,12 @@ text-align:center;
     margin-left:auto;
     margin-right:auto;
     width: 300px;
+}
+
+.goodSource{
+    background-color:green;
+}
+
+.noSource{
+    background-color: #999;
 }
