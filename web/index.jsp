@@ -47,8 +47,8 @@
             <header>
                 <h2 class="centered">Search Results</h2>
                 <h3 class="centered">Drugs Searched</h3>
-                <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <c:out value="${ResultBean.drug1ID}"></c:out><!-- Get the drug ID as well and put here --></p>  
-                <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <c:out value="${ResultBean.drug2ID}"></c:out><!-- Get the drug ID as well and put here --></p>
+                <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <c:out value="${ResultBean.drug1ID}"></c:out></p>  
+                <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <c:out value="${ResultBean.drug2ID}"></c:out></p>
                 <!-- Allow the user to click the button below to switch the object/precipitant -->
                 <form name="drugForm" action="SearchServlet" method="POST">
                     <input name="drug1" type="hidden" value="${ResultBean.drug1}">
@@ -88,10 +88,10 @@
             <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="/DDI">here</a> to search again.</span></c:if>
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
-                    <p class="showAll object"><span class="bold">Object - </span><a href="" target="_blank"> ${results.get(1)}</a></p>
-                    <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> </p>
-                    <p class="showAll precipitant"><span class="bold">Precipitant - </span><a href="" target="_blank"> ${results.get(4)}</a></p>
-                    <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> </p>
+                    <p class="showAll object"><span class="bold">Object - </span><a href="${results.get(0)}" target="_blank"> ${results.get(1)}</a></p>
+                    <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> ${results.get(27)}</p>
+                    <p class="showAll precipitant"><span class="bold">Precipitant - </span><a href="${results.get(3)}" target="_blank"> ${results.get(4)}</a></p>
+                    <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> ${results.get(28)}</p>
                     <p class="showAll certainty"><span class="bold">Certainty - </span> ${results.get(6)}</p>
                     <p class="showAll severity"><span class="bold">Severity - </span> ${results.get(17)}</p>
                     <p class="showAll hide label"><span class="bold">Label - </span> ${results.get(13)}</p>
@@ -116,7 +116,14 @@
                     
                     <p class="showAll hide evidence"><span class="bold">Evidence - </span> ${results.get(22)}</p>
                     <p class="showAll hide evidenceStatement"><span class="bold">Evidence Statement - </span> ${results.get(24)}</p>
-                    <p class="showAll evidenceSource"><span class="bold">Evidence Source- </span><a href="${results.get(23)}" target="_blank">  ${results.get(23)}</a></p>
+                    
+                    <c:if test="${results.get(23).length() < 5}">
+                        <c:set var="evidenceSource" scope="session" value="${results.get(23)}" />
+                        <p class="showAll evidenceSource"><span class="bold">Evidence Source- </span>${results.get(23)}</p>
+                    </c:if>
+                    <c:if test="${results.get(23).length() > 4}">
+                        <p class="showAll evidenceSource"><span class="bold">Evidence Source- </span><a href="${results.get(23)}" target="_blank">  ${results.get(23)}</a></p>
+                    </c:if>
                     
                     <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> ${results.get(25)}</p>
                     <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> ${results.get(26)}</p>
