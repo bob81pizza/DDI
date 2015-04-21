@@ -71,6 +71,7 @@ public class drug_ajax extends HttpServlet {
                         
         }
         catch(Exception e){
+            result += "]";
             System.out.println("SQLException" + e.getMessage());
             e.printStackTrace();
         }        
