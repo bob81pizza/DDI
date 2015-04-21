@@ -12,6 +12,10 @@
         <servlet-name>ReverseServlet</servlet-name>
         <servlet-class>com.ddi.ReverseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>drug_ajax</servlet-name>
+        <servlet-class>com.ddi.drug_ajax</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DDIServlet</servlet-name>
         <url-pattern>/submit</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ReverseServlet</servlet-name>
         <url-pattern>/ReverseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>drug_ajax</servlet-name>
+        <url-pattern>/drug_ajax</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -48,8 +48,6 @@ public class SearchServlet extends HttpServlet {
         Results results = new Results();    
         
         try{
-
-            
             String drug1 = request.getParameter("drug2");
             String drug2 = request.getParameter("drug1");
             
