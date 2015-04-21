@@ -123,16 +123,19 @@
                             }
                             if(oneIsChecked == true){
                                 submitButton.removeAttribute('disabled');
+                                document.getElementById('warningMessage').removeChild(document.getElementById('warningMessage').childNodes[0]);
                             }
                             else{
                                 submitButton.setAttribute('disabled', 'disabled');
-                                
+                                var message = document.createTextNode("At least one source must be checked!");
+                                document.getElementById('warningMessage').appendChild(document.createElement("p").appendChild(message));
                             }
                         }
                     </script>
                 </div>
             </div>
             <div id="submitButton"><input id="findInteractionsSubmit" class="clear" type="submit" value="Find Interactions"/></div>
+            <div id="warningMessage" class="centered warning"></div>
             </form>
         </div>
     </body>
