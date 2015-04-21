@@ -41,7 +41,12 @@
                             var currentSelectedDrug = $('select[id="drugList1"]').val();
                             $.get( "drug_ajax", {drug: currentSelectedDrug} )
                                 .done(function( data ) {
-                                alert( "Data Loaded: " + data );
+                                var ajaxData = data + "";
+                                var drug2List = ajaxData.split(",");
+                                $('select[id="drugList2"]').empty().append('<option>');
+                                for(var i=0; i < drug2List.length; i++){
+                                    $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
+                                }
                             });
                         }
                     </script>
@@ -54,11 +59,11 @@
                         </c:forEach>
                         </select>
                     <script>
-                        $(function(){
-                            $('select[id="drugList2"]').listbox({
-                                searchbar: true // enable a search bar to filter & search items
-                            });
-                        });
+                       // $(function(){
+                        //    $('select[id="drugList2"]').listbox({
+                        //        searchbar: true // enable a search bar to filter & search items
+                        //    });
+                        //});
                     </script>
                 </div>
             </div>
@@ -66,17 +71,17 @@
             <div class="filters clear">
                 <p class="centered stepHeader">Step 2: Please choose the sources for the data</p>
                 <div class="centerDiv">
-                    <input type="checkbox" id="CO-cat" value="Clinically Oriented" onchange="checkSources('CO-cat');"><span class="bold">Clinically Oriented</span><br>
+                    <input type="checkbox" id="CO-cat" value="Clinically Oriented" onchange="checkSources('CO-cat');atLeastOneSource();" checked><span class="bold">Clinically Oriented</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="source" id="COsource1" value="CredibleMeds">CredibleMeds<br>
-                        <input type="checkbox" name="source" id="COsource2" value="NDF-RT">NDF-RT<br>
-                        <input type="checkbox" name="source" id="COsource3" value="ONC-HighPriority">ONC-HighPriority<br>
-                        <input type="checkbox" name="source" id="COsource4" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
+                        <input type="checkbox" name="source" id="COsource1" value="CredibleMeds" checked onchange="atLeastOneSource();">CredibleMeds<br>
+                        <input type="checkbox" name="source" id="COsource2" value="NDF-RT" checked onchange="atLeastOneSource();">NDF-RT<br>
+                        <input type="checkbox" name="source" id="COsource3" value="ONC-HighPriority" checked onchange="atLeastOneSource();">ONC-HighPriority<br>
+                        <input type="checkbox" name="source" id="COsource4" value="ONC-NonInteruptive" checked onchange="atLeastOneSource();">ONC-NonInteruptive<br>
                     </div>
-                    <input type="checkbox" id="BioPharm-cat" value="Bioinformatics-Pharmacovigilance" onchange="checkSources('BioPharm-cat');"><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
+                    <input type="checkbox" id="BioPharm-cat" value="Bioinformatics-Pharmacovigilance" onchange="checkSources('BioPharm-cat');atLeastOneSource();" checked><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="source" id="BPsource1" value="DIKB">DIKB<br>
-                        <input type="checkbox" name="source" id="BPsource2" value="Drugbank">Drugbank<br>
+                        <input type="checkbox" name="source" id="BPsource1" value="DIKB" checked onchange="atLeastOneSource();">DIKB<br>
+                        <input type="checkbox" name="source" id="BPsource2" value="Drugbank" checked onchange="atLeastOneSource();">Drugbank<br>
                     </div>
                     <script>
                         function checkSources(category){
@@ -107,13 +112,27 @@
                             }
                         }
                         
-                        function adjustCats(category){
-                            
+                        function atLeastOneSource(){
+                            var sources = document.getElementsByName('source');
+                            var oneIsChecked = false;
+                            var submitButton = document.getElementById('findInteractionsSubmit');
+                            for(var i=0; i < sources.length; i++){
+                                if(sources[i].checked){
+                                    oneIsChecked = true;
+                                }
+                            }
+                            if(oneIsChecked == true){
+                                submitButton.removeAttribute('disabled');
+                            }
+                            else{
+                                submitButton.setAttribute('disabled', 'disabled');
+                                
+                            }
                         }
                     </script>
                 </div>
             </div>
-            <div id="submitButton"><input class="clear" type="submit" value="Find Interactions"/></div>
+            <div id="submitButton"><input id="findInteractionsSubmit" class="clear" type="submit" value="Find Interactions"/></div>
             </form>
         </div>
     </body>
