@@ -37,34 +37,35 @@
                             });
                         });
                         
+                        var calledOnce = false;
                         function getAvailablePrecipitants(){
                             var currentSelectedDrug = $('select[id="drugList1"]').val();
                             $.get( "drug_ajax", {drug: currentSelectedDrug} )
                                 .done(function( data ) {
-                                var ajaxData = data + "";
-                                var drug2List = ajaxData.split(",");
-                                $('select[id="drugList2"]').empty().append('<option>');
-                                for(var i=0; i < drug2List.length; i++){
-                                    $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
-                                }
-                            });
+                                    var ajaxData = data + "";
+                                    var drug2List = ajaxData.split(",");
+                                    $('select[id="drugList2"]').empty().append('<option>');
+                                    for(var i=1; i < drug2List.length; i++){
+                                        $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
+                                    }
+                                    if(calledOnce){
+                                        $(".lbjs")[1].remove();
+                                    }
+                                    $(function(){
+                                        $('select[id="drugList2"]').listbox({
+                                            searchbar: true // enable a search bar to filter & search items
+                                        });
+                                    });
+                                    calledOnce = true;
+                                });
                         }
+                        
+                        
                     </script>
                 </div>
                 <div id="drugSelection2">
                     <h4 class="bold centered">Drug 2 - Precipitant</h4>
-                    <select name="drugList2" id="drugList2">
-                        <c:forEach items="${DrugBean.drugNames}" var = "dn">
-                            <option value="${dn}">${dn}</option>
-                        </c:forEach>
-                        </select>
-                    <script>
-                       // $(function(){
-                        //    $('select[id="drugList2"]').listbox({
-                        //        searchbar: true // enable a search bar to filter & search items
-                        //    });
-                        //});
-                    </script>
+                    <select name="drugList2" id="drugList2"></select>
                 </div>
             </div>
 
