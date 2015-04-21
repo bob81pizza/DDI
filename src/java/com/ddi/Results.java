@@ -19,6 +19,8 @@ public class Results {
     private String drug2;
     private String drug1ID;
     private String drug2ID;
+    private String sources;
+    private String[] sourcesList;
 
     /**
      * @return the results
@@ -102,6 +104,34 @@ public class Results {
      */
     public void setSourceCSS(ArrayList<String> sourceCSS) {
         this.sourceCSS = sourceCSS;
+    }
+
+    /**
+     * @return the sources
+     */
+    public String getSources() {
+        return sources;
+    }
+
+    /**
+     * @param sources the sources to set
+     */
+    public void setSources(String sources) {
+        this.sources = sources;
+    }
+
+    /**
+     * @return the sourcesList
+     */
+    public String[] getSourcesList() {
+        return sourcesList;
+    }
+
+    /**
+     * @param sourcesList the sourcesList to set
+     */
+    public void setSourcesList(String[] sourcesList) {
+        this.sourcesList = sourcesList;
     }
 
 

@@ -51,6 +51,22 @@ public class SearchServlet extends HttpServlet {
             String drug1 = request.getParameter("drug2");
             String drug2 = request.getParameter("drug1");
             
+            String[] sources = request.getParameterValues("sourcesList");
+            
+            String sourceQuery = "";
+            
+            if(sources == null){
+                sources = request.getParameterValues("source");
+            }
+
+            for(String source: sources){
+                sourceQuery += "'" + source + "'" + ", ";
+            }
+            sourceQuery = sourceQuery.substring(0, sourceQuery.length()-2);
+
+            results.setSources(sourceQuery);
+            results.setSourcesList(sources);
+            
             if(drug1==null && drug2==null){
                 drug1 = request.getParameterValues("drugList1")[0];
                 drug2 = request.getParameterValues("drugList2")[0];
@@ -60,7 +76,8 @@ public class SearchServlet extends HttpServlet {
             conn = DriverManager.getConnection("jdbc:mysql://192.95.16.175:3306/drugData","drugUser", "wzG5VCLqC5tH8GzM");
             st = conn.createStatement();
             
-            String selectAllDrugs = "select * from interactions1 where object = '" + drug1 + "' and precipitant = '"+ drug2+"'" + " order by object, precipitant";
+            String selectAllDrugs = "select * from interactions1 where object = '" + drug1 + "' and precipitant = '"+ drug2+"'" 
+                    + " and source in (" + sourceQuery + ") order by object, precipitant";
             rs = st.executeQuery(selectAllDrugs);
             
             ArrayList<ArrayList> totalResults = new ArrayList<>();
@@ -106,14 +123,15 @@ public class SearchServlet extends HttpServlet {
             }
             
 //            sourceCSS=null;
-            
-            for(int i=0; i<totalResults.get(0).size(); i++){
-                Boolean noSources=false;
-                for(int j=0; j<totalResults.size(); j++){
-                    if(totalResults.get(j).get(i).equals("None")) noSources=true;
+            if(totalResults.size()>0){
+                for(int i=0; i<totalResults.get(0).size(); i++){
+                    Boolean noSources=false;
+                    for(int j=0; j<totalResults.size(); j++){
+                        if(totalResults.get(j).get(i).equals("None")) noSources=true;
+                    }
+                    if(noSources==false) sourceCSS.add("goodSource");
+                    else sourceCSS.add("noSource");
                 }
-                if(noSources==false) sourceCSS.add("goodSource");
-                else sourceCSS.add("noSource");
             }
 
             

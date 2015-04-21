@@ -68,15 +68,15 @@
                 <div class="centerDiv">
                     <input type="checkbox" id="CO-cat" value="Clinically Oriented" onchange="checkSources('CO-cat');"><span class="bold">Clinically Oriented</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="COsource" id="COsource1" value="CredibleMeds">CredibleMeds<br>
-                        <input type="checkbox" name="COsource" id="COsource2" value="NDF-RT">NDF-RT<br>
-                        <input type="checkbox" name="COsource" id="COsource3" value="ONC-HighPriority">ONC-HighPriority<br>
-                        <input type="checkbox" name="COsource" id="COsource4" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
+                        <input type="checkbox" name="source" id="COsource1" value="CredibleMeds">CredibleMeds<br>
+                        <input type="checkbox" name="source" id="COsource2" value="NDF-RT">NDF-RT<br>
+                        <input type="checkbox" name="source" id="COsource3" value="ONC-HighPriority">ONC-HighPriority<br>
+                        <input type="checkbox" name="source" id="COsource4" value="ONC-NonInteruptive">ONC-NonInteruptive<br>
                     </div>
                     <input type="checkbox" id="BioPharm-cat" value="Bioinformatics-Pharmacovigilance" onchange="checkSources('BioPharm-cat');"><span class="bold">Bioinformatics-Pharmacovigilance</span><br>
                     <div class="indent">
-                        <input type="checkbox" name="BPsource" id="BPsource1" value="DIKB">DIKB<br>
-                        <input type="checkbox" name="BPsource" id="BPsource2" value="Drugbank">Drugbank<br>
+                        <input type="checkbox" name="source" id="BPsource1" value="DIKB">DIKB<br>
+                        <input type="checkbox" name="source" id="BPsource2" value="Drugbank">Drugbank<br>
                     </div>
                     <script>
                         function checkSources(category){
