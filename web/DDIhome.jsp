@@ -45,7 +45,7 @@
                                     var ajaxData = data + "";
                                     var drug2List = ajaxData.split(",");
                                     $('select[id="drugList2"]').empty().append('<option>');
-                                    for(var i=1; i < drug2List.length; i++){
+                                    for(var i=0; i < drug2List.length; i++){
                                         $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
                                     }
                                     if(calledOnce){
