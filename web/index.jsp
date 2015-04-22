@@ -41,6 +41,10 @@
                 for(var i=0; i < stuffToShow.length; i++){
                     stuffToShow[i].style.display = "block";
                 }
+                var buttons = document.getElementsByClassName('buttons');
+                for(var i=0; i < stuffToShow.length; i++){
+                    $(buttons[i]).addClass('displayed');
+                }
             }
         </script>
     </head>
@@ -64,40 +68,48 @@
                         <p class="centered">Click <a href="/DDI">here</a> to search for 2 new drugs</p>
                 </div>
                 <div id="dataButtons">
+                    <div id="legend" class="centered">
+                        <img src="images/dataNotSelected.png"> Data available but not shown                        
+                        <img src="images/dataSelected.png"> Data available and shown
+                        <br>
+                        <img src="images/noDataNotSelected.png"> No data available and not shown
+                        <img src="images/noDataSelected.png"> No data available but shown
+                    </div>
                     <c:if test="${ResultBean.sourceCSS.size()>0}">
                         <div class="centered">
                             <div class="buttonRow">
-                                <button id="certaintyButton" class="${ResultBean.sourceCSS.get(6)} displayed" onclick="toggleVisible('certainty')">Certainty</button>
-                                <button id="contraindicationButton" class="${ResultBean.sourceCSS.get(7)} displayed" onclick="toggleVisible('contraindication')">Contraindication</button>
-                                <button id="ddiPkEffectButton" class="${ResultBean.sourceCSS.get(9)} displayed" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
-                                <button id="ddiPkMechanismButton" class="${ResultBean.sourceCSS.get(10)} displayed" onclick="toggleVisible('ddiPkMechanism')">ddiPkMechanism</button>
-                                <button id="HomepageButton" class="${ResultBean.sourceCSS.get(12)}" onclick="toggleVisible('Homepage')">Homepage</button>
+                                <button id="certaintyButton" class="${ResultBean.sourceCSS.get(6)} displayed buttons" onclick="toggleVisible('certainty')">Certainty</button>
+                                <button id="contraindicationButton" class="${ResultBean.sourceCSS.get(7)} displayed buttons" onclick="toggleVisible('contraindication')">Contraindication</button>
+                                <button id="ddiPkEffectButton" class="${ResultBean.sourceCSS.get(9)} displayed buttons" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
+                                <button id="ddiPkMechanismButton" class="${ResultBean.sourceCSS.get(10)} displayed buttons" onclick="toggleVisible('ddiPkMechanism')">ddiPkMechanism</button>
+                                <button id="ddiType" class=" buttons" onclick="toggleVisible('ddiType')">ddiPkType</button> <!-- Need the result bean thingie here -->
+                                <button id="HomepageButton" class="${ResultBean.sourceCSS.get(12)} buttons" onclick="toggleVisible('Homepage')">Homepage</button>
                                 <br>
                             </div>
                             <div class="buttonRow">
-                                <button id="severityButton" class="${ResultBean.sourceCSS.get(17)} displayed" onclick="toggleVisible('severity')">Severity</button>
-                                <button id="labelButton" class="${ResultBean.sourceCSS.get(13)}" onclick="toggleVisible('label')">Label</button>
-                                <button id="sourceButton" class="${ResultBean.sourceCSS.get(20)}" onclick="toggleVisible('source')">Source</button>
-                                <button id="uriButton" class="${ResultBean.sourceCSS.get(18)}" onclick="toggleVisible('uri')">URI</button>
-                                <button id="managementOptionsButton" class="${ResultBean.sourceCSS.get(27)}" onclick="toggleVisible('managementOptions')">Management Options</button>
+                                <button id="severityButton" class="${ResultBean.sourceCSS.get(17)} displayed buttons" onclick="toggleVisible('severity')">Severity</button>
+                                <button id="labelButton" class="${ResultBean.sourceCSS.get(13)} buttons" onclick="toggleVisible('label')">Label</button>
+                                <button id="sourceButton" class="${ResultBean.sourceCSS.get(20)} buttons" onclick="toggleVisible('source')">Source</button>
+                                <button id="uriButton" class="${ResultBean.sourceCSS.get(18)} buttons" onclick="toggleVisible('uri')">URI</button>
+                                <button id="managementOptionsButton" class="${ResultBean.sourceCSS.get(27)} buttons" onclick="toggleVisible('managementOptions')">Management Options</button>
                                 
                                 <br>
                             </div>
                             <div class="buttonRow">
-                                <button id="dateAnnotatedButton" class="${ResultBean.sourceCSS.get(8)} displayed" onclick="toggleVisible('dateAnnotated')">Date Annotated</button>
-                                <button id="whoAnnotatedButton" class="${ResultBean.sourceCSS.get(19)} displayed" onclick="toggleVisible('whoAnnotated')">Who Annotated</button>
-                                <button id="effectConceptButton" class="${ResultBean.sourceCSS.get(11)}" onclick="toggleVisible('effectConcept')">Effect Concept</button>
-                                <button id="numericValButton" class="${ResultBean.sourceCSS.get(14)}" onclick="toggleVisible('numericVal')">Numeric Value</button>
-                                <button id="pathwayButton" class="${ResultBean.sourceCSS.get(15)}" onclick="toggleVisible('pathway')">Pathway</button>
-                                <button id="precautionButton" class="${ResultBean.sourceCSS.get(16)}" onclick="toggleVisible('precaution')">Precaution</button>
+                                <button id="dateAnnotatedButton" class="${ResultBean.sourceCSS.get(8)} displayed buttons" onclick="toggleVisible('dateAnnotated')">Date Annotated</button>
+                                <button id="whoAnnotatedButton" class="${ResultBean.sourceCSS.get(19)} displayed buttons" onclick="toggleVisible('whoAnnotated')">Who Annotated</button>
+                                <button id="effectConceptButton" class="${ResultBean.sourceCSS.get(11)} buttons" onclick="toggleVisible('effectConcept')">Effect Concept</button>
+                                <button id="numericValButton" class="${ResultBean.sourceCSS.get(14)} buttons" onclick="toggleVisible('numericVal')">Numeric Value</button>
+                                <button id="pathwayButton" class="${ResultBean.sourceCSS.get(15)} buttons" onclick="toggleVisible('pathway')">Pathway</button>
+                                <button id="precautionButton" class="${ResultBean.sourceCSS.get(16)} buttons" onclick="toggleVisible('precaution')">Precaution</button>
                                 <br>
                             </div>
                             <div class="buttonRow">
-                                <button id="evidenceButton" class="${ResultBean.sourceCSS.get(22)}" onclick="toggleVisible('evidence')">Evidence</button>
-                                <button id="evidenceSourceButton" class="${ResultBean.sourceCSS.get(23)} displayed" onclick="toggleVisible('evidenceSource')">Evidence Source</button>
-                                <button id="evidenceStatementButton" class="${ResultBean.sourceCSS.get(24)}" onclick="toggleVisible('evidenceStatement')">Evidence Statement</button>
-                                <button id="researchStatementLabelButton" class="${ResultBean.sourceCSS.get(25)}" onclick="toggleVisible('researchStatementLabel')">Research Statement Label</button>
-                                <button id="researchStatementButton" class="${ResultBean.sourceCSS.get(26)}" onclick="toggleVisible('researchStatement')">Research Statement</button>
+                                <button id="evidenceButton" class="${ResultBean.sourceCSS.get(22)} buttons" onclick="toggleVisible('evidence')">Evidence</button>
+                                <button id="evidenceSourceButton" class="${ResultBean.sourceCSS.get(23)} displayed buttons" onclick="toggleVisible('evidenceSource')">Evidence Source</button>
+                                <button id="evidenceStatementButton" class="${ResultBean.sourceCSS.get(24)} buttons" onclick="toggleVisible('evidenceStatement')">Evidence Statement</button>
+                                <button id="researchStatementLabelButton" class="${ResultBean.sourceCSS.get(25)} buttons" onclick="toggleVisible('researchStatementLabel')">Research Statement Label</button>
+                                <button id="researchStatementButton" class="${ResultBean.sourceCSS.get(26)} buttons" onclick="toggleVisible('researchStatement')">Research Statement</button>
                                 <br>
                             </div>
                         <button id="showAllData" onclick="showAllData();">Show all Data</button>
