@@ -47,6 +47,7 @@
                                     $('select[id="drugList2"]').empty().append('<option>');
                                     for(var i=0; i < drug2List.length; i++){
                                         $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
+                                        alert(drug2List[i]);
                                     }
                                     if(calledOnce){
                                         $(".lbjs")[1].remove();
@@ -135,8 +136,10 @@
                     </script>
                 </div>
             </div>
-            <div id="submitButton"><input id="findInteractionsSubmit" class="clear" type="submit" value="Find Interactions"/></div>
-            <div id="warningMessage" class="centered warning"></div>
+                <div class="test centered">
+                    <div id="submitButton"><input id="findInteractionsSubmit" class="clear" type="submit" value="Find Interactions"/></div>
+                    <div id="warningMessage" class="centered warning"></div>
+                </div>
             </form>
         </div>
     </body>
