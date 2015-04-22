@@ -14,7 +14,7 @@
         <div id="page">
             <header>
                     <h1 class="centered">DDI Search Engine</h1>
-                    <img class="centered" src="images/header1.jpg">
+                    <img class="centered" src="images/header2.png">
             </header>		
             <div class="intro">
                 <p> Welcome to the DDI Search Engine. The engine will help you locate interactions between two prescription drugs. Below, enter the drugs you 

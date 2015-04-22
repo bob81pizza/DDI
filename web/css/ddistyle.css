@@ -46,6 +46,7 @@ text-align:center;
 
 .whiteText{
     color: #FFFFFF;
+    margin-bottom: 50px;
 }
 
 .centered{
@@ -114,4 +115,15 @@ text-align:center;
 
 .warning{
     color: red;
+}
+
+#scrollheader{
+    position: fixed;
+    top: 0;
+    width: 820px;
+    background-color: green;
+}
+
+#dataButtons{
+    margin-top:275px;
 }
