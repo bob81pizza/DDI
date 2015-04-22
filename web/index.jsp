@@ -63,6 +63,7 @@
                 </div>
                 <div id="dataButtons">
                     <c:if test="${ResultBean.sourceCSS.size()>0}">
+                        <div class="centered">
                         <button class="${ResultBean.sourceCSS.get(6)}" onclick="toggleVisible('certainty')">Certainty</button>
                         <button class="${ResultBean.sourceCSS.get(7)}" onclick="toggleVisible('contraindication')">Contraindication</button>
                         <button class="${ResultBean.sourceCSS.get(9)}" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
@@ -89,6 +90,7 @@
                         <button class="${ResultBean.sourceCSS.get(26)}" onclick="toggleVisible('researchStatement')">Research Statement</button>
                         <br>
                         <button class="infoButton" onclick="showAllData();">Show all Data</button>
+                        </div>
                     </c:if>
                 </div>
             </header>
