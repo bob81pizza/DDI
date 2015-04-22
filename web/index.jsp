@@ -63,7 +63,7 @@
                         <c:forEach items="${ResultBean.sourcesList}" var="sources">
                             <input name="sourcesList" type="hidden" value="${sources}">
                         </c:forEach>
-                        <div id="submitButton"><input class="clear" type="submit" value="Reverse Object/Precipitant"/></div>
+                        <div id="submitButton"><input class="clear regButton" type="submit" value="Reverse Object/Precipitant"/></div>
                     </form>
                         <p class="centered">Click <a href="/DDI">here</a> to search for 2 new drugs</p>
                 </div>
@@ -112,7 +112,7 @@
                                 <button id="researchStatementButton" class="${ResultBean.sourceCSS.get(26)} buttons" onclick="toggleVisible('researchStatement')">Research Statement</button>
                                 <br>
                             </div>
-                        <button id="showAllData" onclick="showAllData();">Show all Data</button>
+                        <button id="showAllData" class="regButton" onclick="showAllData();">Show all Data</button>
                     </div>
                 </c:if>
             </div>

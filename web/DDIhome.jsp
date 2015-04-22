@@ -141,7 +141,7 @@
                 </div>
             </div>
                 <div class="test centered">
-                    <div id="submitButton"><input id="findInteractionsSubmit" class="clear" type="submit" value="Find Interactions"/></div>
+                    <div id="submitButton"><input id="findInteractionsSubmit" class="clear regButton" type="submit" value="Find Interactions"/></div>
                     <div id="warningMessage" class="centered warning"></div>
                 </div>
             </form>
