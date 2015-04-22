@@ -47,7 +47,6 @@
                                     $('select[id="drugList2"]').empty().append('<option>');
                                     for(var i=0; i < drug2List.length; i++){
                                         $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
-                                        alert(drug2List[i]);
                                     }
                                     if(calledOnce){
                                         $(".lbjs")[1].remove();
