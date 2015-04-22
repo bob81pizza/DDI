@@ -175,3 +175,7 @@ text-align:center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.buttonRow{
+    padding: 5px;
+}
