@@ -158,20 +158,37 @@
                     <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> ${results.get(25)}</p>
                     <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> ${results.get(26)}</p>
                     </div>
-                    <div id="comment" class="centered">
-                        <p class="bold">Leave a Comment</p>
-                        <form>
-                            <label>
-                                <p>User: <input type="text" placeholder="Your Username" required max="50"></p>
-                            </label>
-                            <label>
-                                <p>Email: <input type="email" placeholder="yourEmail@email.com" required max="75"></p>
-                            </label>
-                            <label>
-                                <p>Comment: <textarea required placeholder="Your Comment"></textarea></p>
-                            </label>
-                            <input type="submit" value="Submit Comment" name="submitComment">
-                        </form>
+                    <div id="comments" class="centered">
+                        <h4>Comments about this interaction</h4>
+                        <div id="existingComment">
+                            <p class="comment">
+                                <span class="bold">User: </span>Jacky Ramsey<br>
+                                <span class="bold">Email: </span>jmr205@pitt.edu<br>
+                                <span class="bold">Date: </span>03/15/2015<br>
+                                <span class="bold">Comment: </span>Information about the XXXX is not complete.  Consider adding this additional information:<br>
+                            </p>
+                            <p class="comment">
+                                <span class="bold">User: </span>Maggie Shipley<br>
+                                <span class="bold">Email: </span>mas111@pitt.edu<br>
+                                <span class="bold">Date: </span>04/1/2015<br>
+                                <span class="bold">Comment: </span>This source also has additional information about XXXX: <br>
+                            </p>
+                        </div>
+                        <div id="newComment">
+                            <p class="bold">Leave a Comment</p>
+                            <form>
+                                <label>
+                                    <p>User: <input type="text" name="user" placeholder="Your Username" required max="50"></p>
+                                </label>
+                                <label>
+                                    <p>Email: <input type="email" name="email" placeholder="yourEmail@email.com" required max="75"></p>
+                                </label>
+                                <label>
+                                    <p>Comment: <textarea name="comment" required placeholder="Your Comment"></textarea></p>
+                                </label>
+                                <button name="submitComment">Submit Comment</button>
+                            </form>
+                        </div>
                     </div>
                     <hr class="clear">
                 </div>

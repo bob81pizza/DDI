@@ -297,11 +297,17 @@ text-align:center;
     text-decoration: none;
 }
 
-#left{
+#existingComment{
     float: left;
-    width:580px;
+    text-align: left;
+    width: 65%;
 }
 
-#right{
+#newComment{
     float:right;
+}
+
+.comment{
+    border: 3px;
+    background-color:#C2D1E0;
 }
