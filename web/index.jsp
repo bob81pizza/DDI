@@ -125,9 +125,7 @@
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
                     <div id="data">
-                    <p class="showAll object"><span class="bold">Object - </span><a href="${results.get(0)}" target="_blank"> ${results.get(1)}</a></p>
                     <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> ${results.get(27)}</p>
-                    <p class="showAll precipitant"><span class="bold">Precipitant - </span><a href="${results.get(3)}" target="_blank"> ${results.get(4)}</a></p>
                     <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> ${results.get(28)}</p>
                     <p class="showAll certainty"><span class="bold">Certainty - </span> ${results.get(6)}</p>
                     <p class="showAll severity"><span class="bold">Severity - </span> ${results.get(17)}</p>
