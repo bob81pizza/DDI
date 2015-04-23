@@ -52,10 +52,12 @@
         <div id="page">
             <header>
                 <div id="scrollheader">
+                    <c:if test="${ResultBean.results.size()>0}">
                     <h2 class="centered">Search Results</h2>
                     <h3 class="centered">Drugs Searched</h3>
-                    <p class="centered"><c:out value="Drug 1: ${ResultBean.drug1}"></c:out> - <c:out value="${ResultBean.drug1ID}"></c:out></p>  
-                    <p class="centered"><c:out value="Drug 2: ${ResultBean.drug2}"></c:out> - <c:out value="${ResultBean.drug2ID}"></c:out></p>
+                    <p class="centered">Drug 1: <a href="${ResultBean.results.get(0).get(0)}" target="_blank"><c:out value="${ResultBean.drug1}"></c:out></a> - <c:out value="${ResultBean.drug1ID}"></c:out></p>  
+                    <p class="centered">Drug 2: <a href="${ResultBean.results.get(0).get(3)}" target="_blank"><c:out value="${ResultBean.drug2}"></c:out></a> - <c:out value="${ResultBean.drug2ID}"></c:out></p>
+                    </c:if>
                     <p class="centered">Sources: ${ResultBean.sources}</p>
                     <form name="drugForm" action="SearchServlet" method="POST">
                         <input name="drug1" type="hidden" value="${ResultBean.drug1}">
