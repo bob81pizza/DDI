@@ -84,7 +84,7 @@
                                 <button id="contraindicationButton" class="${ResultBean.sourceCSS.get(7)} displayed buttons" onclick="toggleVisible('contraindication')">Contraindication</button>
                                 <button id="ddiPkEffectButton" class="${ResultBean.sourceCSS.get(9)} displayed buttons" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
                                 <button id="ddiPkMechanismButton" class="${ResultBean.sourceCSS.get(10)} displayed buttons" onclick="toggleVisible('ddiPkMechanism')">ddiPkMechanism</button>
-                                <button id="ddiType" class="${ResultBean.sourceCSS.get(21)}" onclick="toggleVisible('ddiType')">ddiPkType</button>
+                                <button id="ddiTypeButton" class=" buttons ${ResultBean.sourceCSS.get(21)}"​ onclick="toggleVisible('ddiType')">ddiType</button>
                                 <button id="HomepageButton" class="${ResultBean.sourceCSS.get(12)} buttons" onclick="toggleVisible('Homepage')">Homepage</button>
                                 <br>
                             </div>
@@ -123,7 +123,7 @@
             <c:if test="${ResultBean.results.size() == 0}"><span class="noResults">No results for selected drugs. Click <a href="/DDI">here</a> to search again.</span></c:if>
             
             <c:forEach items= "${ResultBean.results}" var="results">
-                <div class="results">
+                <div class="results xtraPadding">
                     <div id="data">
                     <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> ${results.get(27)}</p>
                     <p class="showAll DrugClass2"><span class="bold">Precipitant Drug Class - </span> ${results.get(28)}</p>
@@ -179,7 +179,7 @@
                         </div>
                         <div id="newComment">
                             <p class="bold">Leave a Comment</p>
-                            <!--<form action="" method="GET">-->
+                            <form class="xtraPadding">
                                 <label>
                                     <p>User: <input type="text" name="user" placeholder="Your Username" required max="50"></p>
                                 </label>
@@ -189,8 +189,8 @@
                                 <label>
                                     <p>Comment: <textarea name="comment" required placeholder="Your Comment"></textarea></p>
                                 </label>
-                                <button name="submitComment">Submit Comment</button>
-                            <!--</form>-->
+                                <button class="regButton xtraPadding" name="submitComment">Submit Comment</button>
+                            </form>
                         </div>
                     </div>
                     <hr class="clear">
