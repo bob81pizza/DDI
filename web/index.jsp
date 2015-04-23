@@ -133,7 +133,12 @@
                     <p class="showAll hide source"><span class="bold">Source - </span> ${results.get(20)}</p>
                     <p class="showAll whoAnnotated"><span class="bold">Who Annotated  - </span> ${results.get(19)}</p>
                     <p class="showAll dateAnnotated"><span class="bold">Date Annotated - </span> ${results.get(8)}</p>
-                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span><a href="${results.get(12)}" target="_blank"> ${results.get(12)}</a></p>
+                    <c:if test="${results.get(12).length() < 5}">
+                        <p class="showAll hide Homepage"><span class="bold">Homepage - </span>${results.get(12)}</p>
+                    </c:if>
+                    <c:if test="${results.get(12).length() > 4}">
+                        <p class="showAll hide Homepage"><span class="bold">Homepage - </span><a href="${results.get(12)}" target="_blank"> ${results.get(12)}</a></p>
+                    </c:if>
                     <p class="showAll contraindication"><span class="bold">Contraindication - </span> ${results.get(7)}</p>
                     <p class="showAll ddiPkEffect"><span class="bold">ddiPkEffect - </span> ${results.get(9)}</p>
                     <p class="showAll ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> ${results.get(10)}</p>
@@ -174,7 +179,7 @@
                         </div>
                         <div id="newComment">
                             <p class="bold">Leave a Comment</p>
-                            <form>
+                            <!--<form action="" method="GET">-->
                                 <label>
                                     <p>User: <input type="text" name="user" placeholder="Your Username" required max="50"></p>
                                 </label>
@@ -185,7 +190,7 @@
                                     <p>Comment: <textarea name="comment" required placeholder="Your Comment"></textarea></p>
                                 </label>
                                 <button name="submitComment">Submit Comment</button>
-                            </form>
+                            <!--</form>-->
                         </div>
                     </div>
                     <hr class="clear">
