@@ -122,6 +122,7 @@
             
             <c:forEach items= "${ResultBean.results}" var="results">
                 <div class="results">
+                    <div id="data">
                     <p class="showAll object"><span class="bold">Object - </span><a href="${results.get(0)}" target="_blank"> ${results.get(1)}</a></p>
                     <p class="showAll DrugClass1"><span class="bold">Object Drug Class - </span> ${results.get(27)}</p>
                     <p class="showAll precipitant"><span class="bold">Precipitant - </span><a href="${results.get(3)}" target="_blank"> ${results.get(4)}</a></p>
@@ -132,25 +133,19 @@
                     <p class="showAll hide source"><span class="bold">Source - </span> ${results.get(20)}</p>
                     <p class="showAll whoAnnotated"><span class="bold">Who Annotated  - </span> ${results.get(19)}</p>
                     <p class="showAll dateAnnotated"><span class="bold">Date Annotated - </span> ${results.get(8)}</p>
-                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span> ${results.get(12)}</p>
+                    <p class="showAll hide Homepage"><span class="bold">Homepage - </span><a href="${results.get(12)}" target="_blank"> ${results.get(12)}</a></p>
                     <p class="showAll contraindication"><span class="bold">Contraindication - </span> ${results.get(7)}</p>
-                    
                     <p class="showAll ddiPkEffect"><span class="bold">ddiPkEffect - </span> ${results.get(9)}</p>
                     <p class="showAll ddiPkMechanism"><span class="bold">ddiPkMechanism - </span> ${results.get(10)}</p>
                     <p class="showAll hide ddiType"><span class="bold">ddiType - </span> ${results.get(21)}</p>
-                   
                     <p class="showAll hide managementOptions"><span class="bold">Management Options - </span> ${results.get(27)}</p>
-                    
                     <p class="showAll hide effectConcept"><span class="bold">Effect Concept - </span> ${results.get(11)}</p>
                     <p class="showAll hide numericVal"><span class="bold">Numeric Value  - </span> ${results.get(14)}</p>
                     <p class="showAll hide pathway"><span class="bold">Pathway - </span> ${results.get(15)}</p>
                     <p class="showAll hide precaution"><span class="bold">Precaution - </span> ${results.get(16)}</p>
-                    
                     <p class="showAll hide uri"><span class="bold">URI- </span> ${results.get(18)}</p>
-                    
                     <p class="showAll hide evidence"><span class="bold">Evidence - </span> ${results.get(22)}</p>
                     <p class="showAll hide evidenceStatement"><span class="bold">Evidence Statement - </span> ${results.get(24)}</p>
-                    
                     <c:if test="${results.get(23).length() < 5}">
                         <c:set var="evidenceSource" scope="session" value="${results.get(23)}" />
                         <p class="showAll evidenceSource"><span class="bold">Evidence Source- </span>${results.get(23)}</p>
@@ -158,11 +153,25 @@
                     <c:if test="${results.get(23).length() > 4}">
                         <p class="showAll evidenceSource"><span class="bold">Evidence Source- </span><a href="${results.get(23)}" target="_blank">  ${results.get(23)}</a></p>
                     </c:if>
-                    
                     <p class="showAll hide researchStatementLabel"><span class="bold">Research Statement Label - </span> ${results.get(25)}</p>
                     <p class="showAll hide researchStatement"><span class="bold">Research Statement  - </span> ${results.get(26)}</p>
-                     
-                    <hr>
+                    </div>
+                    <div id="comment" class="centered">
+                        <p class="bold">Leave a Comment</p>
+                        <form>
+                            <label>
+                                <p>User: <input type="text" placeholder="Your Username" required max="50"></p>
+                            </label>
+                            <label>
+                                <p>Email: <input type="email" placeholder="yourEmail@email.com" required max="75"></p>
+                            </label>
+                            <label>
+                                <p>Comment: <textarea required placeholder="Your Comment"></textarea></p>
+                            </label>
+                            <input type="submit" value="Submit Comment" name="submitComment">
+                        </form>
+                    </div>
+                    <hr class="clear">
                 </div>
             </c:forEach>
             <p class="whiteText">Leave this here for CSS purposes</p>

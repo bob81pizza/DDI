@@ -296,3 +296,12 @@ text-align:center;
     background-image: linear-gradient(to bottom, #9dcbe8, #7190a3);
     text-decoration: none;
 }
+
+#left{
+    float: left;
+    width:580px;
+}
+
+#right{
+    float:right;
+}
