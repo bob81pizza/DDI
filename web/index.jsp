@@ -84,7 +84,7 @@
                                 <button id="contraindicationButton" class="${ResultBean.sourceCSS.get(7)} displayed buttons" onclick="toggleVisible('contraindication')">Contraindication</button>
                                 <button id="ddiPkEffectButton" class="${ResultBean.sourceCSS.get(9)} displayed buttons" onclick="toggleVisible('ddiPkEffect')">ddiPkEffect</button>
                                 <button id="ddiPkMechanismButton" class="${ResultBean.sourceCSS.get(10)} displayed buttons" onclick="toggleVisible('ddiPkMechanism')">ddiPkMechanism</button>
-                                <button id="ddiType" class=" buttons" onclick="toggleVisible('ddiType')">ddiPkType</button> <!-- Need the result bean thingie here -->
+                                <button id="ddiType" class="${ResultBean.sourceCSS.get(21)}" onclick="toggleVisible('ddiType')">ddiPkType</button>
                                 <button id="HomepageButton" class="${ResultBean.sourceCSS.get(12)} buttons" onclick="toggleVisible('Homepage')">Homepage</button>
                                 <br>
                             </div>
