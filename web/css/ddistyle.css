@@ -111,7 +111,7 @@ text-align:center;
     width: 300px;
 }
 
-.goodSource.displayed{
+.goodSource{
     background: #199419;
     background-image: -webkit-linear-gradient(top, #199419, #0b3d18);
     background-image: -moz-linear-gradient(top, #199419, #0b3d18);
@@ -133,7 +133,7 @@ text-align:center;
     text-decoration: none;
 }
 
-.goodSource.displayed:hover{
+.goodSource:hover{
     background: #0b3d18;
     background-image: -webkit-linear-gradient(top, #0b3d18, #199419);
     background-image: -moz-linear-gradient(top, #0b3d18, #199419);
@@ -143,7 +143,7 @@ text-align:center;
     border: solid #63896c 2px;
 }
 
-.goodSource:hover{
+.goodSource.displayed:hover{
     border: solid #63896c 2px;
     background: #34d93f;
     background-image: -webkit-linear-gradient(top, #34d93f, #4cfc3c);
@@ -153,7 +153,7 @@ text-align:center;
     background-image: linear-gradient(to bottom, #34d93f, #4cfc3c);
 }
 
-.goodSource{
+.goodSource.displayed{
     background: #4cfc3c;
     background-image: -webkit-linear-gradient(top, #4cfc3c, #34d93f);
     background-image: -moz-linear-gradient(top, #4cfc3c, #34d93f);
@@ -175,7 +175,7 @@ text-align:center;
     text-decoration: none;
 }
 
-.noSource.displayed{
+.noSource{
     background: #696869;
     background-image: -webkit-linear-gradient(top, #696869, #212121);
     background-image: -moz-linear-gradient(top, #696869, #212121);
@@ -197,7 +197,7 @@ text-align:center;
     text-decoration: none;
 }
 
-.noSource.displayed:hover{
+.noSource:hover{
     border: solid #bebebe 2px;
     background: #212121;
     background-image: -webkit-linear-gradient(top, #212121, #696869);
@@ -207,7 +207,7 @@ text-align:center;
     background-image: linear-gradient(to bottom, #212121, #696869);
 }
 
-.noSource:hover{
+.noSource.displayed:hover{
     border: solid #bebebe 2px;
     background: #a3a3a3;
     background-image: -webkit-linear-gradient(top, #a3a3a3, #bdbdbd);
@@ -217,7 +217,7 @@ text-align:center;
     background-image: linear-gradient(to bottom, #a3a3a3, #bdbdbd);
 }
 
-.noSource{
+.noSource.displayed{
     background: #bdbdbd;
     background-image: -webkit-linear-gradient(top, #bdbdbd, #a3a3a3);
     background-image: -moz-linear-gradient(top, #bdbdbd, #a3a3a3);
@@ -310,4 +310,8 @@ text-align:center;
 .comment{
     border: 3px;
     background-color:#C2D1E0;
+}
+
+.xtraPadding{
+    padding: 5px;
 }
