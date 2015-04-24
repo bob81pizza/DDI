@@ -44,14 +44,9 @@
                                 .done(function( data ) {
                                     var ajaxData = data + "";
                                     var drug2List = ajaxData.split(",");
-                                    $('select[id="drugList2"]').empty().append('<option>');
+                                    $('select[id="drugList2"]').empty();
                                     for(var i=0; i < drug2List.length; i++){
-                                        if(i==0){
-                                            $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]).attr('selected', 'selected'));
-                                        }
-                                        else{
-                                            $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
-                                        }
+                                         $('select[id="drugList2"]').append($('<option>').text(drug2List[i]).attr('value', drug2List[i]));
                                     }
                                     if(calledOnce){
                                         $(".lbjs")[1].remove();
